@@ -1,0 +1,37 @@
+{
+  "headers":{
+    "correlation_id":"99",
+    "username":"kannan",
+    "ticket_num":"srno123",
+    "type":"existing_policies"
+  },
+  "payload":{
+    "Existing_Policies":[
+      {
+        "Firewall":"am2-fa-c2r304-fw-3",
+        "Policy-Name":"PRIVATE-MT:UNTRUST:180622-001260_Abhimanyu_247",
+        "Source-IP":"10.197.16.181",
+        "Destination-IP":"92.246.34.177",
+        "Port":"22",
+        "Input-Row-ID":2357
+      },
+      {
+        "Firewall":"am2-fa-c2r304-fw-3",
+        "Policy-Name":"PRIVATE-MT:UNTRUST:180626-002921_pvkondap_1",
+        "Source-IP":"10.197.18.118",
+        "Destination-IP":"92.246.34.177",
+        "Port":"22",
+        "Input-Row-ID":2359
+      },
+      {
+        "Firewall":"am2-opc-fw-1",
+        "Policy-Name":"PRIVATE-MT:UNTRUST:180614-001017_oupadhya_263",
+        "Source-IP":"10.111.217.216",
+        "Destination-IP":"92.60.244.8",
+        "Port":"22",
+        "Input-Row-ID":2361
+      }
+    ]
+  }
+}
+

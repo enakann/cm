@@ -1,0 +1,34 @@
+
+gen_cm:
+  userName: kannan
+  password: divya123
+  host: rabbitmq-2
+  port: 5672
+  virtualHost: /
+  exchangeName: firms.change-manager.tx
+  queueName: firms.change-manager.gen-result.q
+  routingKey: None
+
+approver_cm:
+  userName: kannan
+  password: divya123
+  host: rabbitmq-2
+  port: 5672
+  virtualHost: /
+  exchangeName: firms.change-manager.tx
+  queueName: firms.change-manager.approver-result.q 
+  routingKey: None
+
+applier_cm:
+  userName: kannan
+  password: divya123
+  host: rabbitmq-2
+  port: 5672
+  virtualHost: /
+  exchangeName: firms.change-manager.tx
+  queueName: firms.change-manager.applier-result.q
+  routingKey: None
+
+
+
+

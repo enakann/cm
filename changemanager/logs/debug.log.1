@@ -1,0 +1,5 @@
+2018-12-01 01:04:04,630 -ERROR:kannan:Select failed :select * from approver where correlation_id=:1 and type=:2-(u'11114', 'pre_approved_not_matched') due to ('select * from approver where correlation_id=:1 and type=:2', (u'11114', 'pre_approved_not_matched'), [])
+Traceback (most recent call last):
+  File "/home/navi/Desktop/changemanager/utils/data_store.py", line 98, in select_data
+    raise NoDataAvailableException (query, bind, data)
+NoDataAvailableException: ('select * from approver where correlation_id=:1 and type=:2', (u'11114', 'pre_approved_not_matched'), [])

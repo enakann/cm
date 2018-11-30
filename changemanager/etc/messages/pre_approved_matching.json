@@ -1,0 +1,77 @@
+{
+  "headers": {
+    "correlation_id": "99",
+    "username": "kannan",
+    "type": "pre_approved_matched",
+    "ticket_num": "srno123",
+    "total": 10
+  },
+  "payload": {
+    "Pre_approved": {
+      "ch3-fa-c4r512-fw-1": {
+        "meta-data": {
+          "vendor": "Cisco",
+          "model": "SRX"
+        },
+        "cmds": {
+          "new_src_cmd": [
+            "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32"
+          ],
+          "new_dst_cmd": [
+            "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17"
+          ],
+          "new_app_cmd": [
+            "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh"
+          ]
+        },
+        "matched_template": [
+          "template1",
+          "template2"
+        ]
+      },
+      "ch3-fa-c4r512-fw-2": {
+        "meta-data": {
+          "vendor": "Cisco",
+          "model": "SRX"
+        },
+        "cmds": {
+          "new_src_cmd": [
+            "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32"
+          ],
+          "new_dst_cmd": [
+            "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17"
+          ],
+          "new_app_cmd": [
+            "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh"
+          ]
+        },
+        "matched_template": [
+          "template1",
+          "template2"
+        ]
+      },
+      "ch3-fa-c4r512-fw-3": {
+        "meta-data": {
+          "vendor": "Cisco",
+          "model": "SRX"
+        },
+        "cmds": {
+          "new_src_cmd": [
+            "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32"
+          ],
+          "new_dst_cmd": [
+            "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17"
+          ],
+          "new_app_cmd": [
+            "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh"
+          ]
+        },
+        "matched_template": [
+          "template1",
+          "template2"
+        ]
+      }
+    }
+  }
+}
+

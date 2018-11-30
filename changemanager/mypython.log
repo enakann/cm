@@ -1,0 +1,53 @@
+[2018-11-19 20:21:32,740:data_store:25:INFO] Connecting to db
+[2018-11-19 20:21:32,741:data_store:100:ERROR] Select failed :select * from validator-None due to no such table: validator
+Traceback (most recent call last):
+  File "utils/data_store.py", line 94, in select_data
+    self.cur.execute (query)
+OperationalError: no such table: validator
+[2018-11-19 20:21:32,748:data_store:25:INFO] Closing connection
+[2018-11-19 20:29:55,022:data_store:25:INFO] Connecting to db
+[2018-11-19 20:29:55,023:data_store:101:ERROR] Select failed :select * from validator-None due to no such table: validator
+Traceback (most recent call last):
+  File "utils/data_store.py", line 95, in select_data
+    self.cur.execute (query)
+OperationalError: no such table: validator
+[2018-11-19 20:29:55,026:data_store:25:INFO] Closing connection
+[2018-11-27 22:40:43,051:data_store:25:INFO] Connecting to db
+[2018-11-27 22:40:43,064:data_store:100:ERROR] Select failed :select * from requester_updater where correlation_id='Rajni'-None due to no such table: requester_updater
+Traceback (most recent call last):
+  File "utils/data_store.py", line 94, in select_data
+    self.cur.execute (query)
+OperationalError: no such table: requester_updater
+[2018-11-27 23:53:29,535:data_store:25:INFO] Connecting to db
+[2018-11-27 23:53:29,536:data_store:100:ERROR] Select failed :delete * from requester_updater -None due to near "*": syntax error
+Traceback (most recent call last):
+  File "utils/data_store.py", line 94, in select_data
+    self.cur.execute (query)
+OperationalError: near "*": syntax error
+[2018-11-27 23:53:29,541:data_store:25:INFO] Connecting to db
+[2018-11-27 23:54:15,209:data_store:25:INFO] Connecting to db
+[2018-11-27 23:55:29,125:data_store:25:INFO] Connecting to db
+[2018-11-28 00:28:30,735:data_store:25:INFO] Connecting to db
+[2018-11-28 00:28:30,735:data_store:100:ERROR] Select failed :select *  from requester_updater -None due to no such table: requester_updater
+Traceback (most recent call last):
+  File "/home/navi/Desktop/aggregator/aggregator/utils/data_store.py", line 94, in select_data
+    self.cur.execute (query)
+OperationalError: no such table: requester_updater
+[2018-11-28 00:28:30,737:data_store:25:INFO] Connecting to db
+[2018-11-28 00:28:30,738:data_store:100:ERROR] Select failed :select *  from requester_updater -None due to no such table: requester_updater
+Traceback (most recent call last):
+  File "/home/navi/Desktop/aggregator/aggregator/utils/data_store.py", line 94, in select_data
+    self.cur.execute (query)
+OperationalError: no such table: requester_updater
+[2018-11-28 00:38:08,436:data_store:25:INFO] Connecting to db
+[2018-11-28 00:38:08,437:data_store:100:ERROR] Select failed :select *  from requester_updater -None due to no such table: requester_updater
+Traceback (most recent call last):
+  File "utils/data_store.py", line 94, in select_data
+    self.cur.execute (query)
+OperationalError: no such table: requester_updater
+[2018-11-28 00:38:08,442:data_store:25:INFO] Connecting to db
+[2018-11-28 00:38:08,442:data_store:100:ERROR] Select failed :select *  from requester_updater -None due to no such table: requester_updater
+Traceback (most recent call last):
+  File "utils/data_store.py", line 94, in select_data
+    self.cur.execute (query)
+OperationalError: no such table: requester_updater

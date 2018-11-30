@@ -1,0 +1,38 @@
+{
+        "headers": {
+                "correlation_id": "99",
+                "username": "kannan",
+                "ticket_num": "srno123",
+                "type": "gen_summary"
+  },
+        "payload": {
+                "summary": {
+                        "total_recs": 30,
+                        "recomm_for": 15,
+                        "existing": 10,
+                        "red_flags": 5
+                    },
+                "details": [{
+                          "source": "10.10.10.1",
+                          "destination": "10.172.2.1",
+                          "port": 22,
+                          "protocol": "tcp",
+                          "input-row-id": 1
+                },
+                  {
+                        "source": "10.10.10.3",
+                        "destination": "10.172.2.3",
+                        "port": 22,
+                        "protocol": "tcp",
+                        "input-row-id": 2
+                  },
+                  {
+                        "source": "10.10.10.1",
+                        "destination": "10.172.2.1",
+                        "port": 22,
+                        "protocol": "tcp",
+                        "input-row-id": 1
+      }]
+    }
+  }
+
