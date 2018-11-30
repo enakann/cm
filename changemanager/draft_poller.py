@@ -11,9 +11,15 @@ import copy
 import traceback
 import time
 import logging
+import os
+import sys
 
 logger_obj=Logger("kannan","log_config.yml")
 logger=logger_obj.get_logger()
+
+PROJECT_ROOT="/home/navi/Desktop/changemanager"
+if sys.platform=='win32':
+    PROJECT_ROOT = r"C:\Users\navkanna\PycharmProjects\cm\changemanager"
 
 
 class Summary:
@@ -83,23 +89,22 @@ class GenMessages(object):
 #python2.7
 ##########
 
-class ApproverApplierMsg(GenMessages):
+"""class ApproverApplierMsg(GenMessages):
     def __init__(self,msg):
        super(GenMessages,self).__init__(msg)
        self.count=self.msg[6]
        self.payload = self.msg[7]
-       self.status = self.msg[8]
+       self.status = self.msg[8]"""
        
 #python3
 ########
 
-"""class ApproverApplierMsg(GenMessages):
+class ApproverApplierMsg(GenMessages):
     def __init__(self,msg):
        super().__init__(msg)
        self.count=self.msg[6]
        self.payload = self.msg[7]
-       self.status = self.msg[8]"""
-    
+       self.status = self.msg[8]
     
 
 
@@ -155,7 +160,7 @@ class ApproverApplierInfos(GenMessageInfos):
 class RecommendPolicyNotPresent(object):
   def __init__(self,msg):
         self.msg=msg
-        self.db="/home/navi/Desktop/changemanager/utils/cm.db"
+        self.db=os.path.join(PROJECT_ROOT,r"utils\cm.db")
 
         self.gen_table="generate"
         self.summary_table="gen_summary"
@@ -193,7 +198,7 @@ class RecommendPolicyNotPresent(object):
 
 
   def get_final_msg(self, gen_msg_contaner):
-      import pdb;pdb.set_trace()
+      #import pdb;pdb.set_trace()
       _final_msg = OrderedDict()
       _final_msg["headers"] = self.msg.get_header()
       _final_msg["payload"]=OrderedDict()
@@ -297,9 +302,10 @@ class Accumulator:
 class RecommendPolicyPresent(RecommendPolicyNotPresent):
     #Todo: Create class which handle if Recommend Policy is there
     def __init__(self,msg):
-        super(RecommendPolicyPresent,self).__init__(msg)
+        #super(RecommendPolicyPresent,self).__init__(msg)
+        super().__init__ (msg)
 
-        self.db="/home/navi/Desktop/changemanager/utils/cm.db"
+        self.db=os.path.join(PROJECT_ROOT,r"utils/cm.db")
 
         #tables
         self.gen_table="generate"
@@ -340,12 +346,28 @@ class RecommendPolicyPresent(RecommendPolicyNotPresent):
         return _final_msg
         
     def process(self):
-        self.approver_applier_msgs=self.get_approver_applier_msg()
-        import pdb;pdb.set_trace()
-        self.app_applier_msg_conatiner=ApproverApplierInfos.from_list(self.approver_applier_msgs)
-        self.final_app_appr_msg = self.get_final_msg (self.app_applier_msg_conatiner)
+        _ls=list()
+        ret,self.approver_applier_msgs=self.get_approver_applier_msg()
+        #import pdb;pdb.set_trace()
+        logger.info("get_approver_applier_msg has returend {}".format(self.approver_applier_msgs))
+        if ret:
+            logger.info("get_approver_applier_msg is succesfull")
+            
+            logger.info("Creating a container of received msgs")
+            for k,v in self.approver_applier_msgs.items():
+                 self.app_applier_msg_conatiner.append(ApproverApplierInfos.from_list(v[0]))
+            
+            logger.info("creating final_applier_approver message")
+            self.final_app_appr_msg = self.get_final_msg (self.app_applier_msg_conatiner)
         
+        logger.info("collecting new existing and ref flag messages")
         self.new_existing_redflag_msgs = self.get_new_existing_redflag_msg ()
+        if  not self.new_existing_redflag_msgs:
+                  logger.info("get_new_existing_redflag_msg has  failed returned with{} ".format(self.new_existing_redflag_msgs))
+        logger.info("get_new_existing_redflag_msg has returned {}".format(self.new_existing_redflag_msgs))
+        
+        
+        logger.info("collecting 1.new_existing_redflag_msgs and 2.final_app_appr_mesg")
         
         self.final_msg["generator"]=self.new_existing_redflag_msgs
         self.final_msg["applier_approver"]=self.final_app_appr_mesg
@@ -354,22 +376,25 @@ class RecommendPolicyPresent(RecommendPolicyNotPresent):
         
     
     def get_new_existing_redflag_msg(self):
-        return super(RecommendPolicyPresent,self).get_new_existing_redflag_msg()
+        #import pdb;pdb.set_trace()
+        return super().get_new_existing_redflag_msg()
     
     
     def get_approver_applier_msg(self):
         #get approved Matching and Not matching
+        #import pdb;pdb.set_trace()
         pa_matching_msg=self.get_pre_approved_matching()
 
         if pa_matching_msg:
             logger.info("approved matching msg is available proceeding ......")
-            self.data_to_be_collected['pre_approved_matched'] = True
+            self.data_to_be_collected['pre_approved_matched'] = pa_matching_msg
             print(pa_matching_msg)
             ret_pm=self.pre_approved_matched(pa_matching_msg)
             logger.info("pre_approved_matched has returned {}".format(ret_pm))
             if ret_pm:
                 return ret_pm,self.data_to_be_collected
         else:
+            logger.error("approved_matching is not found in db.....")
             pa_not_matching_msg = self.get_pre_approved_not_matching()
             if pa_not_matching_msg:
                  ret_pnm=self.pre_approved_not_matched(pa_not_matching_msg)
@@ -384,7 +409,7 @@ class RecommendPolicyPresent(RecommendPolicyNotPresent):
 
     def pre_approved_matched(self,pa_matching_msg):
         logger.info("in pre_approved_matched")
-        #import pdb;pdb.set_trace()
+        import pdb;pdb.set_trace()
 
         applier_result_msg = self.get_applier_result()
 
@@ -406,7 +431,7 @@ class RecommendPolicyPresent(RecommendPolicyNotPresent):
 
         elif wait_for_applier_result and not wait_for_pre_app_not_matching:
             if applier_result_msg:
-                self.data_to_be_collected['applier_result'] = True
+                self.data_to_be_collected['applier_result'] = applier_result_msg
                 return True
             return False
 
@@ -415,7 +440,7 @@ class RecommendPolicyPresent(RecommendPolicyNotPresent):
 
         elif not wait_for_applier_result and wait_for_pre_app_not_matching:
             if pa_not_matching_msg:
-                self.data_to_be_collected['pre_approved_not_matched'] = True
+                self.data_to_be_collected['pre_approved_not_matched'] = pa_not_matching_msg
                 return True
             return False
 
@@ -434,13 +459,13 @@ class RecommendPolicyPresent(RecommendPolicyNotPresent):
 
         if wait_for_pre_app_matching and wait_for_applier_result:
             if pa_matching_msg and applier_result_msg:
-                self.data_to_be_collected['pre_approved_matched'] = True
-                self.data_to_be_collected['applier_result'] = True
+                self.data_to_be_collected['pre_approved_matched'] = pa_matching_msg
+                self.data_to_be_collected['applier_result'] = applier_result_msg
                 return True
 
         elif wait_for_applier_result and not wait_for_pre_app_matching:
             if applier_result_msg:
-                self.data_to_be_collected['applier_result'] = True
+                self.data_to_be_collected['applier_result'] = applier_result_msg
                 return True
 
         elif not wait_for_pre_app_matching and not wait_for_applier_result:
@@ -465,6 +490,14 @@ class RecommendPolicyPresent(RecommendPolicyNotPresent):
         if self.msg.recomm_for > _pa_matching_msg[0][6]:
             wait_for_applier_result=True
             wait_for_pre_app_not_matching=True
+        #remove the below ------------------
+        if self.msg.recomm_for < _pa_matching_msg[0][6]:
+            wait_for_applier_result=True
+            wait_for_pre_app_not_matching=True
+        
+        #-------------------------------
+        
+        
         if self.msg.recomm_for == _pa_matching_msg[0][6]:
             wait_for_applier_result=True
             wait_for_pre_app_not_matching=False
@@ -528,7 +561,7 @@ class Poller:
         self.recommendPolicyPresent=None
         self.recommendPolicyNotPresent=None
         self.changeRecordCreator=ChangeRecordCreator()
-        self.db = "/home/navi/Desktop/changemanager/utils/cm.db"
+        self.db = os.path.join(PROJECT_ROOT,r"utils/cm.db")
         self.gen_table="generate"
         self.summary_table="gen_summary"
 
@@ -545,6 +578,7 @@ class Poller:
 
         try:
             query_str = "select * from {} where status=:1".format (tablename)
+            print(self.db)
             with DataStore (self.db) as dbobj:
                 return  dbobj.select_data (query_str, (status,))
         except Exception as e:

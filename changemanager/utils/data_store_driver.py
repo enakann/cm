@@ -4,6 +4,10 @@ import time
 import json
 import datetime
 logger=logging.getLogger("kannan")
+import sys
+
+if sys.platform=='win32':
+    PROJECT_ROOT = r"C:\Users\navkanna\PycharmProjects\cm\changemanager"
 
 class InvalidMessageReceivedException (Exception):
     pass
@@ -17,7 +21,9 @@ class ConsumerDataStoreDriver(object):
         self.msg = msg
         #self.connstr = "oracle/oracle@127.0.0.1/xe"    
         self.table = table
-        self.db = "/home/navi/Desktop/changemanager/utils/cm.db" #to be changed to production service datastore
+        #self.db = "/home/navi/Desktop/changemanager/utils/cm.db" #to be changed to production service datastore
+        if sys.platform == 'win32':
+            self.db = os.path.join(PROJECT_ROOT,r"\utils\cm.db")
 
 
 

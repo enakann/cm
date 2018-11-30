@@ -2,10 +2,15 @@ import logging
 import yaml
 import logging.config
 #from . import export
+import sys
 import os
 
 
 PROJECT_ROOT="/home/navi/Desktop/changemanager"
+if sys.platform=='win32':
+    PROJECT_ROOT = r"C:\Users\navkanna\PycharmProjects\cm\changemanager"
+    
+
 LOG_PATH=os.path.join(PROJECT_ROOT,"logs")
 CONFIG_PATH=os.path.join(PROJECT_ROOT,"etc")
 

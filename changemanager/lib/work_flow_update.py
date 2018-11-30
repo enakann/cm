@@ -1,7 +1,7 @@
 from . import export
 
 
-from publisher import FirmsPublisher
+from .publisher import FirmsPublisher
 
 @export
 class WorkFlowMonitor:

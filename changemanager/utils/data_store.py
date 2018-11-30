@@ -104,11 +104,11 @@ class DataStore:
     def update(self,query,bind=None):
         logger.info("following query -> {} is called for -->{}".format(query,bind))
         try:
-	   if bind:
-		self.cur.execute (query, bind) 
-           else:
-		self.cur.execute (query)
-           self.conn.commit()
+            if bind:
+                self.cur.execute (query, bind)
+            else:
+                self.cur.execute (query)
+            self.conn.commit()
         except Exception as e:
             raise e
     

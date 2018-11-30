@@ -58,11 +58,11 @@ class FirmsPublisher:
         print("handler is confirmed")
         print(frame)
         if type(frame.method) == spec.Confirm.SelectOk:
-              print "Channel in 'confirm' mode."
+              print("Channel in 'confirm' mode.")
         elif type(frame.method) == spec.Basic.Nack:
-              print "Message lost!"
+              print("Message lost!")
         elif type(frame.method) == spec.Basic.Ack:
-              print "Confirm received!" 
+              print("Confirm received!")
 
  
     def _publish(self, message):

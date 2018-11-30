@@ -1,7 +1,7 @@
 import pika
 import json
 from pprint import pprint
-from publisher import FirmsPublisher
+from .publisher import FirmsPublisher
 import traceback
 from . import export
 
