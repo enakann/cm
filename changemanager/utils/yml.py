@@ -1,7 +1,8 @@
 import os
 import yaml
 
-PROJECT_ROOT="/home/navi/Desktop/changemanager"
+from changemanager.__init__ import PROJECT_ROOT
+#PROJECT_ROOT="/home/navi/Desktop/changemanager"
 CONFIG_PATH=os.path.join(PROJECT_ROOT,"etc")
 
 
@@ -25,7 +26,7 @@ class YAML:
 
 
 if __name__ == '__main__':
-    yml=YAML("consumer_config.yml","validator")
+    yml=YAML("consumer_config.yml","approver_cm")
     conf=yml.get_config()
     print(conf)
 

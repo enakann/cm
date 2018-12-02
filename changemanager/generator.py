@@ -7,6 +7,7 @@ from lib import WorkFlowMonitor
 # from aggregator import Aggreagator
 from utils.data_store_driver import ConsumerDataStoreDriver, ConsumerDataStoreDriverForGenSummary,ConsumerDataStoreDriverForApprover
 from utils_poller.containers  import MessageInfos,GenMessageInfos
+from __init__ import PROJECT_ROOT
 
 import copy
 import traceback
@@ -19,9 +20,7 @@ from time import sleep
 from itertools import zip_longest
 
 
-PROJECT_ROOT = "/home/navi/Desktop/changemanager"
-if sys.platform == 'win32':
-    PROJECT_ROOT = r"C:\Users\navkanna\PycharmProjects\cm\changemanager"
+
 logger=logging.getLogger("kannan")
 
 class RecommendPolicyNotPresent (object):
@@ -155,7 +154,7 @@ class RecommendPolicyNotPresent (object):
                     if _db_ret:
                             _all_gen_messages.append (_db_ret)
                     else:
-                            logger.error ("couldnt get the message trying again")
+                            logger.error ("Failed to fetch {} from generate table  {}".format(_msg))
             if len (_all_gen_messages) == 3:
                    try:
                        self.gen_msginfocontainer = GenMessageInfos.from_list (_all_gen_messages)

@@ -64,6 +64,7 @@ class Poller:
         self.db = os.path.join (PROJECT_ROOT, r"utils/cm.db")
         self.gen_table = "generate"
         self.summary_table = "gen_summary"
+        self.tables=["generate,gen_summary,approver,applier"]
     
     def get_pending_summary_messages(self):
         """   1.Query the table ,get the data
@@ -88,6 +89,25 @@ class Poller:
     def process_summary_of_message_info(self):
         pass
     
+    def verify_message(self):
+        pass
+
+    def set_status_completed(self,msg):
+        logger.info("proceding to set status as completed for {}".format(self.tables))
+        with DataStore (self.db) as dbobj:
+            for table in self.tables:
+                query="update {}  set status = {} where correlation_id ={}".format(table,"completed",msg.correlation_id)
+                ret=dbobj.update(query)
+                if not ret:
+                    logger.error("Failed to update status as completed in table {} for {}".format(table,msg.correlation_id))
+                
+
+    def publish_to_change_record_creator(self,msg):
+        yml = YAML ("publisher_config.yml", "change_record_creator")
+        config = yml.get_config ()
+        with FirmsPublisher (config) as  generateInstance:
+                return generateInstance.publish(msg)
+    
     def process(self):
         """This method  shold drive the class"""
         # 1. Query the message info table
@@ -97,21 +117,20 @@ class Poller:
         logger.info ("Getting the Message from gen_sumary table which is at pedning.......")
         try:
             ret = self.get_pending_summary_messages ()
-            
             if not ret:
                 logger.error ("Error in getting the pending message from gen_summary table")
-        
         except Exception as e:
             logger.error (e)
+            raise e
         
         # import pdb;pdb.set_trace()
         try:
-            self.msginfocontainer = MessageInfos.from_list (ret)
+            self.msginfocontainer = MessageInfos.from_list(ret)
             if not self.msginfocontainer:
                 raise ContainerCreationException ("Unable to create a container")
         except Exception as e:
-            logger.error ("Error in creating container classs from gen_summary messages")
-            return False
+            logger.error ("Error in creating container classs from gen_summary messages  {}".format(e))
+            raise e
         
         # print(self.msginfocontainer)
         
@@ -124,21 +143,29 @@ class Poller:
             if item.recomm_for:
                 logger.info ("recomeneded policy exist starting to process for {}".format (item))
                 
-                self.recommendPolicyPresent = RecommendPolicyNotPresent (item)
+                self.recommendPolicyPresent = RecommendPolicyNotPresent(item)
                 
-                rcp_result = self.recommendPolicyPresent.process ()
+                rcp_result = self.recommendPolicyPresent.process()
                 if rcp_result:
                     logger.info ("Poller succesfully Finished processing  {} has returned {}".format (item, rcp_result))
                     logger.info ("Messages collected generate:{}  and approver_applier:{}".format (
                         rcp_result['generator']['payload'].keys (), rcp_result['applier_approver']['payload'].keys ()))
+
+                    _pubish_ret=self.publish_to_change_record_creator(rcp_result)
+                    if _publish_ret:
+                        self.set_status_completed(item)
+                        
+                    
                 else:
                     logger.error ("Poller failed processing {}".format (item))
+                    
+                    
             else:
                 logger.info ("recomeneded policy doesnt  exist starting to process for {}".format (item))
                 
-                self.recommendPolicyNotPresent = RecommendPolicyNotPresent (item)
+                self.recommendPolicyNotPresent = RecommendPolicyNotPresent(item)
                 
-                rcnp_result = self.recommendPolicyNotPresent.process ()
+                rcnp_result = self.recommendPolicyNotPresent.process()
                 if rcnp_result:
                     logger.info ("Poller succesfully Finished processing using {} {} has returned {}".format (
                         self.recommendPolicyNotPresent, item, rcnp_result))
@@ -147,21 +174,7 @@ class Poller:
                     logger.error ("Poller Failed processing {}".format (item))
             logger.info ("**************FINISEHD WORKING  *********************{}".format (item))
         
-        """for item in self.msginfocontainer:
-            if item.recomm_for:
-                result=self.recommendPolicyPresent.process(item)
-                if result:
-                    change_details=self.create_change_details(messages)  # create the change_details
-                    self.changeRecordCreator(change_details)   # Call Change Record Creator,poller done
-                else:
-                    continue
-            else:
-                result = self.recommendPolicyNotPresent.process(item)
-                if result:
-                    change_details = self.create_change_details (messages)
-                    self.changeRecordCreator (change_details)
-                else:
-                    continue"""
+
     
     def collect_messages(self):
         """ Collect message from all the table"""

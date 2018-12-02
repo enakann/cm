@@ -111,6 +111,7 @@ class DataStore:
             self.conn.commit()
         except Exception as e:
             raise e
+        return True
     
     def delete(self, query, bind):
         logger.info ("delete called :{} with {}".format (query, bind))

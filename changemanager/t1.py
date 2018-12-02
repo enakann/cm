@@ -2,8 +2,6 @@ from lib import FirmsPublisher
 from utils import YAML
 
 yml=YAML("publisher_config.yml","validator")
-
-
 config=yml.get_config()
 
 
