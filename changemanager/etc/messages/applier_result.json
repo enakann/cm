@@ -6,6 +6,10 @@
     "ticket_num": "srno123"
   },
   "payload": {
+    "summary":{
+      "total_success":10,
+      "total_failed":5
+    },
     "applier_result": {
       "ch3-fa-c4r512-fw-1": {
         "meta-data": {

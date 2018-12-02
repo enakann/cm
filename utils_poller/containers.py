@@ -95,8 +95,10 @@ class ApproverMsg (GenMessages):
 class ApplierMsg (GenMessages):
     def __init__(self, msg):
         super ().__init__ (msg)
-        self.payload = self.msg[6]
-        self.status = self.msg[7]
+        self.total_failed=self.msg[6]
+        self.total_success=self.msg[7]
+        self.payload = self.msg[8]
+        self.status = self.msg[9]
 
 
 class MessageInfos (object):
@@ -104,7 +106,7 @@ class MessageInfos (object):
         self.container = []
     
     def add(self, *args):  # Either this
-        self.container.append (Summary (**kwargs))
+        self.container.append (Summary (*args))
     
     @classmethod
     def from_list(cls, rows):  # Or this

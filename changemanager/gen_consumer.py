@@ -5,7 +5,7 @@ from utils import Logger
 from utils import YAML
 from lib import WorkFlowMonitor
 #from aggregator import Aggreagator
-from utils.data_store_driver import ConsumerDataStoreDriver,ConsumerDataStoreDriverForGenSummary,ConsumerDataStoreDriverForApprover
+from utils.data_store_driver import ConsumerDataStoreDriver,ConsumerDataStoreDriverForGenSummary,ConsumerDataStoreDriverForApprover,ConsumerDataStoreDriverForApplier
 import copy
 import traceback
 import time
@@ -67,6 +67,8 @@ class ServiceConsumerCallback:
              return ConsumerDataStoreDriverForGenSummary
          elif msg_type in ['pre_approved_matched','pre_approved_not_matched']:
              return ConsumerDataStoreDriverForApprover
+         elif msg_type == 'applier':
+             return ConsumerDataStoreDriverForApplier
          else:
              return ConsumerDataStoreDriver
                   

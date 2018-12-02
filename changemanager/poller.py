@@ -107,6 +107,46 @@ class Poller:
         config = yml.get_config ()
         with FirmsPublisher (config) as  generateInstance:
                 return generateInstance.publish(msg)
+        
+    def transform_container_to_json(_rcp_result_verified):
+        
+        import pdb;pdb.set_trace ()
+        _final_msg = OrderedDict ()
+        _final_msg["headers"] = self.msg.get_header()
+        _final_msg["payload"] = OrderedDict()
+        _final_msg["payload"]["summary"]["total_recs"]=self.msg.total_recs
+        _final_msg["payload"]["summary"]["existing"]=self.msg.existing
+        _final_msg["payload"]["summary"]["red_flags"] = self.msg.red_flags
+        _final_msg["payload"]["gen_summary"]= self.msg.get_payload ()
+        
+    
+        for type,gen_msg in _rcp_result_verified.items():
+            if type == 'approver_applier':
+                _final_msg["payload"]["summary"][]
+                
+                
+                
+                
+                
+            _final_msg["payload"][gen_msg.type] = gen_msg.payload
+    
+        return _final_msg
+    
+    def verify_container(self,_rcp_result,app_apr=None):
+        
+        if app_apr:
+              if not 'approver_applier' in _rcp_result:
+                  return False
+        if not 'generator' in _rcp_result:
+            return False
+        for k,v in _rcp_result:
+            if not v.payload:
+                logger.error("Payload is empty")
+        
+        return True
+        
+        
+        
     
     def process(self):
         """This method  shold drive the class"""
@@ -137,21 +177,26 @@ class Poller:
         for item in self.msginfocontainer:
             # import pdb;pdb.set_trace()
             logger.info ("********working on  {}*************".format (item))
-            if not item.correlation_id == 'sdsdsdsdsd':
+            if not item.correlation_id == 'pm_not_avl':
                 continue
             
             if item.recomm_for:
                 logger.info ("recomeneded policy exist starting to process for {}".format (item))
                 
-                self.recommendPolicyPresent = RecommendPolicyNotPresent(item)
+                self.recommendPolicyPresent = RecommendPolicyPresent(item)
                 
                 rcp_result = self.recommendPolicyPresent.process()
                 if rcp_result:
                     logger.info ("Poller succesfully Finished processing  {} has returned {}".format (item, rcp_result))
                     logger.info ("Messages collected generate:{}  and approver_applier:{}".format (
                         rcp_result['generator']['payload'].keys (), rcp_result['applier_approver']['payload'].keys ()))
+                    
+                    _verify_ret=verify_container(rcp_result,app_apr=True)
+                    
+                    if _verify_ret:
+                        _json_ret=self.transform_container_to_json(rcp_result)
 
-                    _pubish_ret=self.publish_to_change_record_creator(rcp_result)
+                    _pubish_ret=self.publish_to_change_record_creator(_json_ret)
                     if _publish_ret:
                         self.set_status_completed(item)
                         
@@ -172,7 +217,13 @@ class Poller:
                     logger.info ("Messages collected generate {}".format (rcnp_result['payload'].keys ()))
                 else:
                     logger.error ("Poller Failed processing {}".format (item))
+            
+            
+            
+            
             logger.info ("**************FINISEHD WORKING  *********************{}".format (item))
+            
+            
         
 
     

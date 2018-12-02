@@ -170,6 +170,34 @@ class ConsumerDataStoreDriverForApprover(ConsumerDataStoreDriver):
 
              return _insert_values
 
+
+class ConsumerDataStoreDriverForApplier(ConsumerDataStoreDriver):
+    def __init__(self, msg, table, workflow_monitor=None):
+        super (ConsumerDataStoreDriverForApplier, self).__init__ (msg, table, workflow_monitor=None)
+    
+    def get_queryString(self):
+        return "insert into " + self.table + " values (?,?,?,?,?,?,?,?,?,?)"
+    
+    def _get_insert_vaues(self):
+        header, payload = self.get_header_payload ()
+        try:
+            _insert_values = [None, datetime.datetime.now (), header["correlation_id"], header["username"],
+                              header["ticket_num"], header["type"]]
+            _summary=payload['summary']
+            total_failed = _summary['total_failed']
+            total_success = _summary['total_success']
+            _payload = json.dumps (payload)
+        except KeyError as e:
+            logger.error (e, exc_info=True)
+            raise e
+
+        _insert_values.append(total_failed)
+        _insert_values.append(total_success)
+        _insert_values.append (_payload)
+        _insert_values.append ('pending')
+        
+        return _insert_values
+
       
 
 

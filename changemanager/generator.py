@@ -73,8 +73,13 @@ class RecommendPolicyNotPresent (object):
  
            
         logger.info("Succesfully recevied  conatainer with all genereate messages {}".format(self.gen_msginfocontainer))
-            
+        
+        return self.gen_msginfocontainer
+        
         logger.info("Formatting messages to json now ")
+        
+        
+        
         self.final_messages = self.get_final_msg (self.gen_msginfocontainer)
         
         print(self.final_messages)
@@ -123,7 +128,7 @@ class RecommendPolicyNotPresent (object):
         return {}
     
     def accumulate_messages(self):
-        import pdb;pdb.set_trace()
+        #import pdb;pdb.set_trace()
         _status = self.get_message_tobe_collected ()
         _all_gen_messages = list ()
         if all ([getattr (self.msg, x) for x in self.msg_types]):
