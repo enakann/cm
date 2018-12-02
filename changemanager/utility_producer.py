@@ -14,8 +14,13 @@ from pprint import pprint
 logger_obj=Logger("aggregator","log_config.yml")
 logger=logger_obj.get_logger()
 
+from __init__ import PROJECT_ROOT,MSG_TYPE_TABLE_MAPPING
 
 MESSAGE_PATH="/home/navi/Desktop/changemanager/etc/messages/"
+
+MESSAGE_PATH=os.path.join(PROJECT_ROOT,r"/etc/messages")
+
+
 
 MESSAGE_FILES={
 'apr':'applier_result.json',
@@ -41,7 +46,7 @@ PUBLISH_CONFIG={
 'gen':'gen_cm'
 }
 
-DB="/home/navi/Desktop/changemanager/utils/test.db"
+DB=os.path.join(PROJECT_ROOT,r"\utils\cm.db")
 
 def _get_config(msg_type):
    

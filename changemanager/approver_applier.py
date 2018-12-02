@@ -141,7 +141,7 @@ class RecommendPolicyPresent (RecommendPolicyNotPresent):
 
         logger.info ("collecting 1.new_existing_redflag_msgs and 2.final_app_appr_mesg is done")
         
-        import pdb;pdb.set_trace()
+        #import pdb;pdb.set_trace()
         self.final_msg["generator"] = self.new_existing_redflag_msgs
         
         return self.final_msg

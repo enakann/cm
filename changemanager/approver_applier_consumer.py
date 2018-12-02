@@ -15,6 +15,8 @@ logger_obj=Logger("kannan","log_config.yml")
 logger=logger_obj.get_logger()
 #logger=logging.getLogger("kannan")
 
+from __init__ import PROJECT_ROOT,MSG_TYPE_TABLE_MAPPING
+
 class MsgNotFoundInValidatorTable(Exception):
     pass
 
@@ -108,7 +110,7 @@ class ServiceConsumerCallback:
             'pre_approved_not_matched':'approver',
             'applier_result':'applier'}
         try:
-           table=_type_table_mapping.get(self.prop['type'],None)
+           table=MSG_TYPE_TABLE_MAPPING.get(self.prop['type'],None)
            if not table:
                logger.error("Error in retrieving table and msg_type".format(table,self.prop["type"]))
         except Exception as e:

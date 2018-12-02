@@ -1,1 +1,1 @@
-2018-12-02 22:29:06,590 -INFO:kannan:collecting 1.new_existing_redflag_msgs and 2.final_app_appr_mesg is done
+2018-12-03 03:19:03,517 -INFO:kannan:[GenMessages(correlation_id =pm_not_avl,type=new_policy, status=pending), GenMessages(correlation_id =pm_not_avl,type=existing_policies, status=pending)]

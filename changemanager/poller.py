@@ -19,13 +19,13 @@ import logging
 import os
 import sys
 from collections import OrderedDict
+import json
 
 logger_obj = Logger ("kannan", "log_config.yml")
 logger = logger_obj.get_logger ()
 
-PROJECT_ROOT = "/home/navi/Desktop/changemanager"
-if sys.platform == 'win32':
-    PROJECT_ROOT = r"C:\Users\navkanna\PycharmProjects\cm\changemanager"
+from __init__ import PROJECT_ROOT
+
 
 
 class ContainerCreationException (Exception):
@@ -33,11 +33,36 @@ class ContainerCreationException (Exception):
 
 
 class ChangeRecordCreator:
-    pass
+    def __init__(self):
+        self.msg={'headers': {'correlation_id': 'pm_not_avl', 'username': 'kannan', 'ticket_num': 'srno123', 'type': 'change_record'}, 'payload': OrderedDict([('summary', OrderedDict([('total_recs', 30), ('existing', 10), ('red_flags', 0), ('pre_approved_matched_count', 15), ('pre_approved_not_matched_count', 0), ('approved_matched_count', 15)])), ('gen_summary', {'details': [{'source': '10.10.10.1', 'destination': '10.172.2.1', 'protocol': 'tcp', 'port': 22, 'input-row-id': 1}, {'source': '10.10.10.3', 'destination': '10.172.2.3', 'protocol': 'tcp', 'port': 22, 'input-row-id': 2}, {'source': '10.10.10.1', 'destination': '10.172.2.1', 'protocol': 'tcp', 'port': 22, 'input-row-id': 1}], 'summary': {'red_flags': 5, 'recomm_for': 15, 'total_recs': 30, 'existing': 10}}), ('pre_approved_matched', '{"New_Policies": {"ch3-fa-c4r512-fw-1": {"meta-data": {"model": "SRX", "vendor": "Cisco"}, "cmds": {"new_app_cmd": ["set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh"], "new_src_cmd": ["set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32"], "new_dst_cmd": ["set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17"]}}, "ch3-fa-c4r512-fw-2": {"meta-data": {"model": "SRX", "vendor": "Cisco"}, "cmds": {"new_app_cmd": ["set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh"], "new_src_cmd": ["set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32"], "new_dst_cmd": ["set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17"]}}}}'), ('applier_result', '{"applier_result": {"ch3-fa-c4r512-fw-1": {"meta-data": {"model": "SRX", "vendor": "Cisco"}, "cmds": {"new_app_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh", "result": "Passed"}], "new_src_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"reason": "ssh error failed to connect", "cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "failed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"reason": "Policy cannot be applied Error", "cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "failed"}], "new_dst_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}]}}, "ch3-fa-c4r512-fw-3": {"meta-data": {"model": "SRX", "vendor": "Cisco"}, "cmds": {"new_app_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh", "result": "Passed"}], "new_src_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "failed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}], "new_dst_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}]}}, "ch3-fa-c4r512-fw-2": {"meta-data": {"model": "SRX", "vendor": "Cisco"}, "cmds": {"new_app_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh", "result": "Passed"}], "new_src_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "failed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}], "new_dst_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}]}}}}'), ('new_policy', {'New_Policies': {'ch3-fa-c4r512-fw-1': {'meta-data': {'model': 'SRX', 'vendor': 'Cisco'}, 'cmds': {'new_app_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh'], 'new_src_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32'], 'new_dst_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17']}}, 'ch3-fa-c4r512-fw-3': {'meta-data': {'model': 'SRX', 'vendor': 'Cisco'}, 'cmds': {'new_app_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh'], 'new_src_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32'], 'new_dst_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17']}}, 'ch3-fa-c4r512-fw-2': {'meta-data': {'model': 'SRX', 'vendor': 'Cisco'}, 'cmds': {'new_app_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh'], 'new_src_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32'], 'new_dst_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17']}}}}), ('existing_policies', {'New_Policies': {'ch3-fa-c4r512-fw-1': {'meta-data': {'model': 'SRX', 'vendor': 'Cisco'}, 'cmds': {'new_app_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh'], 'new_src_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32'], 'new_dst_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17']}}, 'ch3-fa-c4r512-fw-3': {'meta-data': {'model': 'SRX', 'vendor': 'Cisco'}, 'cmds': {'new_app_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh'], 'new_src_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32'], 'new_dst_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17']}}, 'ch3-fa-c4r512-fw-2': {'meta-data': {'model': 'SRX', 'vendor': 'Cisco'}, 'cmds': {'new_app_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh'], 'new_src_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32'], 'new_dst_cmd': ['set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17']}}}})])}
+        self.netops_requied=False
+        self.netops_triggers=['red_flags','pre_approved_not_matched_count']
+    def get_msg(self):
+        return self.msg
+    
+    def get_header(self):
+        return self.msg['headers']
+    
+    def get_payload(self):
+        return self.mag['payload']
+    
+    def get_summary(self):
+        return self.msg['payload']['summary']
+    
+    def process(self):
+        sumary=self.get_summary()
+        for k,v in summary.items():
+            if k in self.netops_triggers and v > 0:
+                self.netops_requied=True
+                
+        
 
 
 class Accumulator:
     pass
+
+
+
 
 
 class Poller:
@@ -108,41 +133,68 @@ class Poller:
         with FirmsPublisher (config) as  generateInstance:
                 return generateInstance.publish(msg)
         
-    def transform_container_to_json(_rcp_result_verified):
+    def transform_container_to_json(self,item,_rcp_result_verified):
         
-        import pdb;pdb.set_trace ()
+        #import pdb;pdb.set_trace ()
         _final_msg = OrderedDict ()
-        _final_msg["headers"] = self.msg.get_header()
+        _final_msg["headers"] = item.get_header()
         _final_msg["payload"] = OrderedDict()
-        _final_msg["payload"]["summary"]["total_recs"]=self.msg.total_recs
-        _final_msg["payload"]["summary"]["existing"]=self.msg.existing
-        _final_msg["payload"]["summary"]["red_flags"] = self.msg.red_flags
-        _final_msg["payload"]["gen_summary"]= self.msg.get_payload ()
+        _final_msg["payload"]["summary"]=OrderedDict()
+        _final_msg["payload"]["summary"]["total_recs"]=item.total_recs
+        _final_msg["payload"]["summary"]["existing"]=item.existing
+        _final_msg["payload"]["summary"]["red_flags"] = item.red_flags
+        _final_msg["payload"]["gen_summary"]= json.loads(item.get_payload ())
         
     
         for type,gen_msg in _rcp_result_verified.items():
+            logger.info(type)
+            logger.info(gen_msg)
             if type == 'approver_applier':
-                _final_msg["payload"]["summary"][]
+                for _msg in gen_msg:
+                     if _msg.type == 'pre_approved_matched':
+                           _final_msg["payload"]["summary"]["pre_approved_matched_count"]=_msg.count
+                     
+                     
+                     elif _msg.type == 'pre_approved_not_matched':
+                           _final_msg["payload"]["summary"]["pre_approved_not_matched_count"] = _msg.count
+                     
+                     _final_msg["payload"][_msg.type]=_msg.get_payload()
+                    
+            elif type == 'generator':
+                print("inside generator")
+                for _msg in gen_msg:
+                    _final_msg["payload"][_msg.type] = json.loads(_msg.get_payload ())
+       
+        try:
+            import pdb;pdb.set_trace()
+            _final_msg["payload"]["summary"]["pre_approved_not_matched_count"]=_final_msg["payload"]["summary"].get("pre_approved_not_matched_count",0)
+        except KeyError:
+            logger.debug("setting pre_approved_not_matched as 0 as its not available")
+            _final_msg["payload"]["summary"]["pre_approved_not_matched_count"] = 0
+            
+        try:
+            _final_msg["payload"]["summary"]["approved_matched_count"] = _final_msg["payload"]["summary"].get("pre_approved_matched_count",0)
+        except KeyError:
+            logger.debug ("setting pre_approved_matched as 0 as its not available")
+            _final_msg["payload"]["summary"]["approved_matched_count"] = 0
                 
+                    
                 
-                
-                
-                
-            _final_msg["payload"][gen_msg.type] = gen_msg.payload
-    
         return _final_msg
-    
+
     def verify_container(self,_rcp_result,app_apr=None):
+        #import pdb;pdb.set_trace()
         
         if app_apr:
               if not 'approver_applier' in _rcp_result:
                   return False
         if not 'generator' in _rcp_result:
             return False
-        for k,v in _rcp_result:
-            if not v.payload:
-                logger.error("Payload is empty")
-        
+        for key,contnr in _rcp_result.items():
+            for _msg in contnr:
+                if not _msg.payload:
+                     logger.error("Payload is empty")
+                     return False
         return True
         
         
@@ -188,15 +240,13 @@ class Poller:
                 rcp_result = self.recommendPolicyPresent.process()
                 if rcp_result:
                     logger.info ("Poller succesfully Finished processing  {} has returned {}".format (item, rcp_result))
-                    logger.info ("Messages collected generate:{}  and approver_applier:{}".format (
-                        rcp_result['generator']['payload'].keys (), rcp_result['applier_approver']['payload'].keys ()))
                     
-                    _verify_ret=verify_container(rcp_result,app_apr=True)
+                    _verify_ret=self.verify_container(rcp_result,None)
                     
                     if _verify_ret:
-                        _json_ret=self.transform_container_to_json(rcp_result)
-
-                    _pubish_ret=self.publish_to_change_record_creator(_json_ret)
+                        _json_ret=self.transform_container_to_json(item,rcp_result)
+                        import pdb;pdb.set_trace()
+                        _pubish_ret=self.publish_to_change_record_creator(_json_ret)
                     if _publish_ret:
                         self.set_status_completed(item)
                         
@@ -267,8 +317,12 @@ class Poller:
 
 
 if __name__ == '__main__':
-    logger.info ("****************************************************")
-    logger.info ("Starting the POLLER Now...........")
-    poll = Poller ()
-    poll.process ()
+    #logger.info ("****************************************************")
+    #logger.info ("Starting the POLLER Now...........")
+    #poll = Poller ()
+    #poll.process ()
+    cm=ChangeRecordCreator()
+    msg=cm.get_msg()
+    print(msg)
+    
 
