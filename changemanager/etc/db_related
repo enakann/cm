@@ -1,0 +1,22 @@
+create table applier_temp
+(
+  id             integer
+    primary key
+  autoincrement,
+  insert_date    DATE          not null,
+  correlation_id varchar2(100) not null,
+  username       varchar2(50)  not null,
+  ticket_no      varchar2(50)  not null,
+  type           varchar2(50)  not null,
+  total_failed   int,
+  total_success  int,
+  payload        data          not null,
+  status         varchar2(20)  not null
+);
+
+insert into applier_temp
+SELECT id,insert_date,correlation_id,username,ticket_no,type,0,0,payload,status
+FROM applier;
+
+DROP table applier;
+ALTER TABLE applier_temp RENAME TO applier;
