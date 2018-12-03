@@ -93,6 +93,7 @@ class ServiceConsumerCallback:
         
         logger.info("msg {} of  type {} is being processed to store in {}".format(self.prop,msg_type,table))
         try:
+            #import pdb;pdb.set_trace()
             ret = self.get_driver(msg_type)(self.new_msg,table).store()
             if not ret:
                  raise MsgDataStoreFailed(self.new_msg)

@@ -59,7 +59,7 @@ def _get_config(msg_type):
    return config
 
 def _get_msg(msg_type):
-   import pdb;pdb.set_trace() 
+   #import pdb;pdb.set_trace() 
    file_name=os.path.join(MESSAGE_PATH,MESSAGE_FILES.get(msg_type))
    with open(file_name,'r') as fh:
            data=json.loads(fh.read())

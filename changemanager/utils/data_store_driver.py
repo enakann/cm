@@ -5,7 +5,7 @@ import json
 import datetime
 logger=logging.getLogger("kannan")
 import sys
-
+import os
 
 from changemanager.__init__ import PROJECT_ROOT
 
@@ -22,7 +22,8 @@ class ConsumerDataStoreDriver(object):
         self.msg = msg
         #self.connstr = "oracle/oracle@127.0.0.1/xe"    
         self.table = table
-        self.db = os.path.join(PROJECT_ROOT,r"\utils\cm.db")
+        import pdb;pdb.set_trace()
+        self.db = os.path.join(PROJECT_ROOT,"utils/cm.db")
 
 
 
