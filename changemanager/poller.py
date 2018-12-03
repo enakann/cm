@@ -92,7 +92,7 @@ class Poller:
         self.db = os.path.join (PROJECT_ROOT, r"utils/cm.db")
         self.gen_table = "generate"
         self.summary_table = "gen_summary"
-        self.tables=["generate,gen_summary,approver,applier"]
+        self.tables=["generate","gen_summary","approver","applier"]
     
     def get_pending_summary_messages(self):
         """   1.Query the table ,get the data
@@ -120,17 +120,23 @@ class Poller:
     def verify_message(self):
         pass
 
+
+           
+
     def set_status_completed(self,msg):
+        import pdb;pdb.set_trace()
         logger.info("proceding to set status as completed for {}".format(self.tables))
         with DataStore (self.db) as dbobj:
-            for table in self.tables:
-                query="update {}  set status = {} where correlation_id ={}".format(table,"completed",msg.correlation_id)
+            for _table in self.tables:
+                query="update {} set status=\"{}\" where correlation_id ={}".format(_table,"pending",msg.correlation_id)
+                logger.info(query)
                 ret=dbobj.update(query)
                 if not ret:
                     logger.error("Failed to update status as completed in table {} for {}".format(table,msg.correlation_id))
                 
 
     def publish_to_change_record_creator(self,msg):
+        import pdb;pdb.set_trace()
         yml = YAML ("publisher_config.yml", "change_record_creator")
         config = yml.get_config ()
         with FirmsPublisher (config) as  generateInstance:
@@ -251,7 +257,10 @@ class Poller:
                     if _verify_ret:
                         _json_ret=self.transform_container_to_json(item,rcp_result)
                         #import pdb;pdb.set_trace()
-                        _publish_ret=ChangeRecordCreator(_json_ret).process()
+                       # _publish_ret=ChangeRecordCreator(_json_ret).process()
+                    if _json_ret:
+                         _publish_ret=self.publish_to_change_record_creator(_json_ret)
+                    
                     if _publish_ret:
                         self.set_status_completed(item)
                         

@@ -20,6 +20,7 @@ class Summary:
         self.payload = self.msg[10]
         self.status = self.msg[11]
         self.failed=[]
+        self.table='gen_summary'
     
     def __repr__(self):
         return "Summary(correlation_id={},total_recs={}, recomm_for={}, existing={}, red_flags={})". \
@@ -50,6 +51,7 @@ class GenMessages (object):
         self.type = self.msg[5]
         self.payload = self.msg[6]
         self.status = self.msg[7]
+        self.table='generator'
     
     def __repr__(self):
         return "{}(correlation_id ={},type={}, status={})". \
@@ -90,7 +92,7 @@ class ApproverMsg (GenMessages):
         self.count = self.msg[6]
         self.payload = self.msg[7]
         self.status = self.msg[8]
-
+        self.table='approver'
 
 class ApplierMsg (GenMessages):
     def __init__(self, msg):
@@ -99,6 +101,7 @@ class ApplierMsg (GenMessages):
         self.total_success=self.msg[7]
         self.payload = self.msg[8]
         self.status = self.msg[9]
+        self.table='applier'
 
 
 class MessageInfos (object):
