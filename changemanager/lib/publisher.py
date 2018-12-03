@@ -31,6 +31,7 @@ class FirmsPublisher:
     def set_property(self,msg):
         #self.msg_props = pika.BasicProperties()
         self.header=msg.pop("headers")
+        print(self.header)
         self.msg_props=pika.BasicProperties(
                           headers=self.header # Add a key/value header
                       )
@@ -75,7 +76,7 @@ class FirmsPublisher:
                                       body=json.dumps(message))
  
         print("Message delivered {}".format(self.result))
-        print("send message --->{}".format(message))
+        #print("send message --->{}".format(message))
         if not self.result:
             raise pika.exceptions.NackError(message)
             #OR PUBLISH TO A DIFFERENT EXCHANGE

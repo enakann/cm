@@ -14,9 +14,8 @@ from pprint import pprint
 logger_obj=Logger("aggregator","log_config.yml")
 logger=logger_obj.get_logger()
 
-from __init__ import PROJECT_ROOT,MSG_TYPE_TABLE_MAPPING
+from etc import PROJECT_ROOT,TABLE_DATA_STORE_DRIVER_CLASS,MSG_TYPE_TABLE_MAPPING
 
-MESSAGE_PATH="/home/navi/Desktop/changemanager/etc/messages/"
 
 
 MESSAGE_PATH=os.path.join(PROJECT_ROOT,"etc/messages")

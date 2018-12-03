@@ -6,6 +6,9 @@ if sys.platform == 'win32':
     
 logger=logging.getLogger("kannan")
 
+
+from changemanager.__init__ import PROJECT_ROOT
+
 class Summary:
     def __init__(self, msg):
         self.msg = msg

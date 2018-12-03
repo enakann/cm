@@ -75,5 +75,5 @@ class FirmsConsumer:
         if res:
             self.channel.basic_ack (delivery_tag=method.delivery_tag)
         else:
-            self.channel.basic_nack (delivery_tag=method.delivery_tag,requeue=True)
+            self.channel.basic_nack (delivery_tag=method.delivery_tag,requeue=False)
 

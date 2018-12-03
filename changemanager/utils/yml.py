@@ -1,7 +1,7 @@
 import os
 import yaml
 
-from changemanager.__init__ import PROJECT_ROOT
+from etc.app_configs import PROJECT_ROOT
 #PROJECT_ROOT="/home/navi/Desktop/changemanager"
 CONFIG_PATH=os.path.join(PROJECT_ROOT,"etc")
 

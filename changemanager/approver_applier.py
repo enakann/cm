@@ -4,10 +4,11 @@ from utils import DataStore
 from utils import Logger
 from utils import YAML
 from lib import WorkFlowMonitor
-# from aggregator import Aggreagator
 from utils.data_store_driver import ConsumerDataStoreDriver, ConsumerDataStoreDriverForGenSummary,ConsumerDataStoreDriverForApprover
 from generator import RecommendPolicyNotPresent
 from utils.containers  import MessageInfos,GenMessageInfos,ApproverInfos,ApplierInfos
+from etc import PROJECT_ROOT,TABLE_DATA_STORE_DRIVER_CLASS,MSG_TYPE_TABLE_MAPPING
+
 import copy
 import traceback
 import time
@@ -19,9 +20,6 @@ from collections import namedtuple
 from time import sleep
 import logging
 
-
-
-from __init__ import PROJECT_ROOT
 
 logger = logging.getLogger("kannan")
 

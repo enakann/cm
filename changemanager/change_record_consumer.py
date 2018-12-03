@@ -11,7 +11,7 @@ import traceback
 import time
 import logging
 
-from __init__ import PROJECT_ROOT,MSG_TYPE_TABLE_MAPPING
+from etc import PROJECT_ROOT,TABLE_DATA_STORE_DRIVER_CLASS,MSG_TYPE_TABLE_MAPPING
 
 logger_obj=Logger("kannan","log_config.yml")
 logger=logger_obj.get_logger()

@@ -4,13 +4,12 @@ from utils import DataStore
 from utils import Logger
 from utils import YAML
 from lib import WorkFlowMonitor
-# from aggregator import Aggreagator
 from utils.data_store_driver import ConsumerDataStoreDriver, ConsumerDataStoreDriverForGenSummary, \
     ConsumerDataStoreDriverForApprover
 from generator import RecommendPolicyNotPresent
 from approver_applier import RecommendPolicyPresent
-# from utils_poller.containers  import GenMessages
 from utils.containers import MessageInfos, GenMessageInfos
+from etc import PROJECT_ROOT,TABLE_DATA_STORE_DRIVER_CLASS,MSG_TYPE_TABLE_MAPPING
 
 import copy
 import traceback
@@ -24,7 +23,6 @@ import json
 logger_obj = Logger ("kannan", "log_config.yml")
 logger = logger_obj.get_logger ()
 
-from __init__ import PROJECT_ROOT,MSG_TYPE_CONATINER_MAP
 
 
 
@@ -339,8 +337,9 @@ class Poller:
             _set_status_ret = self.set_status_completed (item)
 
             if not _set_status_ret:
-                logging.error ("Processing & Publishing completed but faild to status as completed for {}".format (
+                logging.error ("Processing & Publishing completed but faild to status as completed for {}".format(
                     _set_status_ret))
+
 
             logger.info ("**************FINISEHD WORKING  *********************{}".format (item))
 

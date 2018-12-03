@@ -7,7 +7,7 @@ from lib import WorkFlowMonitor
 # from aggregator import Aggreagator
 from utils.data_store_driver import ConsumerDataStoreDriver, ConsumerDataStoreDriverForGenSummary,ConsumerDataStoreDriverForApprover
 from utils.containers  import MessageInfos,GenMessageInfos
-from __init__ import PROJECT_ROOT
+from etc import PROJECT_ROOT,TABLE_DATA_STORE_DRIVER_CLASS,MSG_TYPE_TABLE_MAPPING
 
 import copy
 import traceback

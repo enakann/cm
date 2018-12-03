@@ -13,8 +13,8 @@ import logging
 
 logger_obj=Logger("kannan","log_config.yml")
 logger=logger_obj.get_logger()
-#logger=logging.getLogger("kannan")
-from __init__ import PROJECT_ROOT,MSG_TYPE_TABLE_MAPPING
+
+from etc import PROJECT_ROOT,TABLE_DATA_STORE_DRIVER_CLASS,MSG_TYPE_TABLE_MAPPING
 
 class MsgNotFoundInValidatorTable(Exception):
     pass

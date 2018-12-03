@@ -4,7 +4,7 @@ import logging.config
 #from . import export
 import sys
 import os
-from changemanager.__init__ import PROJECT_ROOT
+from etc.app_configs import PROJECT_ROOT
     
 
 LOG_PATH=os.path.join(PROJECT_ROOT,"logs")
