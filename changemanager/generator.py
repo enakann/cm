@@ -26,7 +26,7 @@ logger=logging.getLogger("kannan")
 class RecommendPolicyNotPresent (object):
     def __init__(self, msg):
         self.msg = msg
-        self.db = os.path.join (PROJECT_ROOT, r"utils\cm.db")
+        self.db = os.path.join (PROJECT_ROOT, r"utils/cm.db")
         
         self.gen_table = "generate"
         self.summary_table = "gen_summary"
@@ -207,11 +207,13 @@ class RecommendPolicyNotPresent (object):
         """ method check if message for the passed corrid in the service datastore table"""
         logger.info ("get_msg_from_datastore is called from {}".format (self.__class__.__name__))
         try:
+            #import pdb;pdb.set_trace()
+            logger.info(self.db)
             if msg_type:
-                query_str = "select * from {} where correlation_id=:1 and type=:2".format (tablename)
+                query_str = 'select * from \"{}\" where correlation_id=:1 and type=:2'.format (tablename)
                 binds = (corrid, msg_type)
             else:
-                query_str = "select * from {} where correlation_id=:1".format (tablename)
+                query_str = 'select * from \"{}\"  where correlation_id=:1'.format (tablename)
                 binds = (corrid,)
             with DataStore (self.db) as dbobj:
                 return dbobj.select_data (query_str, binds)

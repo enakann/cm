@@ -25,3 +25,13 @@ TABLE_DATA_STORE_DRIVER_CLASS = {
     'pre_approved_not_matched': 'ConsumerDataStoreDriverForApprover',
     'applier_result': 'ConsumerDataStoreDriverForApplier',
      'change_record':'ConsDataStoreDrvrForChangeRecordCreator'}
+
+
+MSG_TYPE_CONATINER_MAP = {'gen_summary':'MessageInfos',
+                          'new_policy':'GenMessageInfos',
+                          'red_flags':'GenMessageInfos',
+                          'existing_policies':'GenMessageInfos',
+                          'pre_approved_matched':'ApproverInfos',
+                          'pre_approved_not_matched':'ApproverInfos',
+                          'applier_result':'ApplierInfos',
+                          'change_record':''}

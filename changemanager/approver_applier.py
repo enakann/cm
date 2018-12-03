@@ -46,6 +46,8 @@ class RecommendPolicyPresent (RecommendPolicyNotPresent):
         
         self.db = os.path.join (PROJECT_ROOT, r"utils/cm.db")
         
+        logger.info("Dev DB:Should be change to Prod DB {}".format(self.db))
+        
         # tables
         self.gen_table = "generate"
         self.summary_table = "gen_summary"
@@ -80,54 +82,88 @@ class RecommendPolicyPresent (RecommendPolicyNotPresent):
 
     def process(self):
         #import pdb;pdb.set_trace()
+        logger.info("construct_data_to_be_collected")
+       
         self.construct_data_to_be_collected()
+        
+        logger.info("construct_data_to_be_collected is done {}".format(self.data_to_be_collected))
+        
+        logger.info("DB: collecting get_pre_approved_matching from {}".format(self.approver_table))
 
         pa_matching_msg = self.get_pre_approved_matching()
+        
 
         if pa_matching_msg:
+            logger.info("pre_approved_matching is available setting pre_approved_matched as True")
             self.data_to_be_collected["pre_approved_matched"].collect=True
+
             
-            #self.approver_matched_conatiner_obj.add(pa_matching_msg)
+            logger.info("Creating ApproverInfos container")
             
             self.data_to_be_collected["pre_approved_matched"].data=ApproverInfos.from_list (pa_matching_msg)
+
+            logger.info("calling pre_approved_matched method for to decide wait strategy")
             pam_ret=self.pre_approved_matched (pa_matching_msg)
             if pam_ret:
+               logger.info("Excepted scenario for collecting message")
+               
+               logger.info("Starting to collect data for the template {}".format(self.data_to_be_collected))
+
                self.collect_data()
                
-               logger.info(self.data_to_be_collected)
+               logger.info("Data collection done".format(self.data_to_be_collected))
                
+               logger.info("Verifying collected data")
+
+
                _verify_rt=self.verify_collected_data()
                if not _verify_rt:
+                   logger.error("Error:Verifiction of collected data failed")
                    return False
         else:
+            logger.info("DB:Pre_approved_matched data is not available ,proceeding with not_matched strategy")
             pa_not_matching_msg = self.get_pre_approved_not_matching ()
             if pa_not_matching_msg:
+                logger.info("pa_not_matching_msg is available setting collect data to be True")
                 self.data_to_be_collected["pre_approved_not_matched"].collect = True
 
-                #self.approver_not_matched_conatiner_obj.add(pa_not_matching_msg)
+                logger.info("Creating ApproverInfos container")
                 self.data_to_be_collected["pre_approved_not_matched"].data = ApproverInfos.from_list(pa_not_matching_msg)
-                
+
+                logger.info("calling pre_approved_not_matched method for to decide wait strategy")
                 panm_ret=self.pre_approved_not_matched(pa_not_matching_msg)
                 if panm_ret:
+                    logger.info("Excepted scenario for wait strategy occured")
+                    
+                    logger.info("Proceeding to collect data")
+
                     self.collect_data()
+
                     _ret=self.verify_collected_data()
                     if not _ret:
+                        logger.error("Error in collecting data")
                         return False
-        logger.info ("FIRST HALF OF THE PROCESS COMPLETED")
+            else:
+                logger.error("None of the Excepted data available as of now ")
+                return False
+                
         
         self.final_msg["approver_applier"] = list()
+
         for k,v in self.data_to_be_collected.items():
             if v.data:
                self.final_msg["approver_applier"].append(v.data)
-            
 
-        logger.info ("STARTING TO COLLECT GENERATE MESSAGES")
+        logger.info ("FIRST HALF:Approver& Applier COMPLETED :{}".format(self.final_msg))
+
+#########################################################################################################################################
+
+        logger.info ("STARTING NEXT HALF:COLLECT GENERATE MESSAGES")
         
         self.new_existing_redflag_msgs = self.get_new_existing_redflag_msg ()
 
 
         if not self.new_existing_redflag_msgs:
-            # import pdb;pdb.set_trace ()
             logger.info ("get_new_existing_redflag_msg has  failed returned with{} ".format (self.new_existing_redflag_msgs))
             logger.info ("generate message should be there  trying again.........")
             sleep (5)
@@ -141,7 +177,6 @@ class RecommendPolicyPresent (RecommendPolicyNotPresent):
 
         logger.info ("collecting 1.new_existing_redflag_msgs and 2.final_app_appr_mesg is done")
         
-        #import pdb;pdb.set_trace()
         self.final_msg["generator"] = self.new_existing_redflag_msgs
         
         return self.final_msg
