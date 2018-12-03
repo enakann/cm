@@ -1,1 +1,1 @@
-2018-12-03 03:19:03,517 -INFO:kannan:[GenMessages(correlation_id =pm_not_avl,type=new_policy, status=pending), GenMessages(correlation_id =pm_not_avl,type=existing_policies, status=pending)]
+2018-12-03 05:42:43,362 -INFO:aggregator:Publishing the message

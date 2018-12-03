@@ -26,5 +26,11 @@ applier_cm:
   exchangeName: firms.change-manager.tx
   routingKey: firms.apply.result
 
-
-
+validator:
+  userName: kannan
+  password: divya123
+  host: rabbitmq-1
+  port: 5672
+  virtualHost: /
+  exchangeName: aggregator
+  routingKey: valid

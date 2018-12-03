@@ -18,9 +18,11 @@ from __init__ import PROJECT_ROOT,MSG_TYPE_TABLE_MAPPING
 
 MESSAGE_PATH="/home/navi/Desktop/changemanager/etc/messages/"
 
-MESSAGE_PATH=os.path.join(PROJECT_ROOT,r"/etc/messages")
 
+MESSAGE_PATH=os.path.join(PROJECT_ROOT,"etc/messages")
 
+print(PROJECT_ROOT)
+print(MESSAGE_PATH)
 
 MESSAGE_FILES={
 'apr':'applier_result.json',
@@ -57,6 +59,7 @@ def _get_config(msg_type):
    return config
 
 def _get_msg(msg_type):
+   import pdb;pdb.set_trace() 
    file_name=os.path.join(MESSAGE_PATH,MESSAGE_FILES.get(msg_type))
    with open(file_name,'r') as fh:
            data=json.loads(fh.read())

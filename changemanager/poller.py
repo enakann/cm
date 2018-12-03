@@ -10,7 +10,7 @@ from utils.data_store_driver import ConsumerDataStoreDriver, ConsumerDataStoreDr
 from generator import RecommendPolicyNotPresent
 from approver_applier import RecommendPolicyPresent
 # from utils_poller.containers  import GenMessages
-from utils_poller.containers import MessageInfos, GenMessageInfos
+from utils.containers import MessageInfos, GenMessageInfos
 
 import copy
 import traceback

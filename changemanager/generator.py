@@ -6,7 +6,7 @@ from utils import YAML
 from lib import WorkFlowMonitor
 # from aggregator import Aggreagator
 from utils.data_store_driver import ConsumerDataStoreDriver, ConsumerDataStoreDriverForGenSummary,ConsumerDataStoreDriverForApprover
-from utils_poller.containers  import MessageInfos,GenMessageInfos
+from utils.containers  import MessageInfos,GenMessageInfos
 from __init__ import PROJECT_ROOT
 
 import copy
