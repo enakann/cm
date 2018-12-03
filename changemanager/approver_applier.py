@@ -198,7 +198,7 @@ class RecommendPolicyPresent (RecommendPolicyNotPresent):
     def pre_approved_matched(self,pa_matching_msg):
         wait_for_pre_app_not_matching, wait_for_applier_result = self.wait_stratery_pre_app_match (pa_matching_msg)
         if wait_for_pre_app_not_matching and wait_for_applier_result:
-            for _item in self.data_to_be_collected:
+            for k,_item in self.data_to_be_collected.items():
                 _item.collect = True
             return True
         elif wait_for_applier_result and not wait_for_pre_app_not_matching:

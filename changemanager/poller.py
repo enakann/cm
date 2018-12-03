@@ -144,6 +144,7 @@ class Poller:
         _final_msg["payload"] = OrderedDict()
         _final_msg["payload"]["summary"]=OrderedDict()
         _final_msg["payload"]["summary"]["total_recs"]=item.total_recs
+        _final_msg["payload"]["summary"]["recomm_for"]=item.recomm_for 
         _final_msg["payload"]["summary"]["existing"]=item.existing
         _final_msg["payload"]["summary"]["red_flags"] = item.red_flags
         _final_msg["payload"]["gen_summary"]= json.loads(item.get_payload ())
@@ -233,7 +234,7 @@ class Poller:
         for item in self.msginfocontainer:
             # import pdb;pdb.set_trace()
             logger.info ("********working on  {}*************".format (item))
-            if not item.correlation_id == 'pm_not_avl':
+            if not item.correlation_id == '99':
                 continue
             
             if item.recomm_for:
