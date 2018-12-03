@@ -1,13 +1,10 @@
 import logging
 import sys
-PROJECT_ROOT = "/home/navi/Desktop/changemanager"
-if sys.platform == 'win32':
-    PROJECT_ROOT = r"C:\Users\navkanna\PycharmProjects\cm\changemanager"
+from etc import PROJECT_ROOT,TABLE_DATA_STORE_DRIVER_CLASS,MSG_TYPE_TABLE_MAPPING
     
 logger=logging.getLogger("kannan")
 
 
-from changemanager.__init__ import PROJECT_ROOT
 
 class Summary:
     def __init__(self, msg):

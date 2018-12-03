@@ -1,17 +1,1 @@
-2018-12-04 04:15:47,475 -ERROR:kannan:KeyboardInterrupt
-Traceback (most recent call last):
-  File "gen_consumer.py", line 151, in <module>
-    conn.consume(callback)
-  File "/home/navi/changemanager/changemanager/lib/consumer.py", line 37, in consume
-    self.channel.start_consuming ()
-  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 1822, in start_consuming
-    self.connection.process_data_events(time_limit=None)
-  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 749, in process_data_events
-    self._flush_output(common_terminator)
-  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 458, in _flush_output
-    self._impl.ioloop.poll()
-  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 495, in poll
-    self._poller.poll()
-  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 1102, in poll
-    events = self._poll.poll(self._get_max_wait())
-KeyboardInterrupt
+2018-12-04 04:41:19,856 -INFO:kannan:********working on  Summary(correlation_id=test1,total_recs=30, recomm_for=15, existing=10, red_flags=5)*************

@@ -48,7 +48,7 @@ class ChangeRecordCreator:
         return self.msg['payload']['summary']
 
     def process(self):
-        import pdb;pdb.set_trace()
+        #import pdb;pdb.set_trace()
         summary=self.get_summary()
         for k,v in summary.items():
             logger.info("key {} and value {}".format(k,v))
@@ -120,6 +120,7 @@ class Poller:
     def verify_message(self):
         pass
 
+
     def verify_msg_is_in_pending(self,corrid):
         _completed_state=[]
         query = """select correlation_id,type,status from {} where correlation_id=:1
@@ -184,20 +185,22 @@ class Poller:
             _final_msg["payload"]["gen_summary"]= json.loads(item.get_payload ())
         except Exception as e:
             logger.error("Exception {} occured while creating header and summary for {}".format(e,item))
+            return False
         try:
-            for type,gen_msg in _rcp_result_verified.items():
-                if type == 'approver_applier':
+            for srvs_type,gen_msg in _rcp_result_verified.items():
+                if srvs_type == 'approver_applier':
                     for _msg in gen_msg:
                         if _msg.type == 'pre_approved_matched':
                             _final_msg["payload"]["summary"]["pre_approved_matched_count"]=_msg.count
                         elif _msg.type == 'pre_approved_not_matched':
                             _final_msg["payload"]["summary"]["pre_approved_not_matched_count"] = _msg.count
                         _final_msg["payload"][_msg.type]=_msg.get_payload()
-                elif type == 'generator':
+                elif srvs_type == 'generator':
                     for _msg in gen_msg:
                         _final_msg["payload"][_msg.type] = json.loads(_msg.get_payload ())
         except Exception as e:
             logging.error("Exception {} occured while creating summary and payload for {}".format(e,item))
+            return False
 
         try:
             #import pdb;pdb.set_trace()
@@ -221,7 +224,7 @@ class Poller:
         #import pdb;pdb.set_trace()
         if item.recomm_for:
               logger.info("Recommended policy is there approver_applier result should be there")
-              import pdb;pdb.set_trace()
+              #import pdb;pdb.set_trace()
               if not 'approver_applier' in _rcp_result.keys():
                   logger.info("Approver& Applier data is not found ")
                   return False
@@ -341,7 +344,7 @@ class Poller:
                     _set_status_ret))
 
 
-            logger.info ("**************FINISEHD WORKING  *********************{}".format (item))
+            logger.info ("*****  FINISEHD WORKING ON --->{}  ********************".format (item))
 
 
 
