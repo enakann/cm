@@ -69,25 +69,19 @@ class ConsumerDataStoreDriver(object):
     def store(self):
         if not self.verifymsg:
             return False
-        logger.info ("Message verification succesfull")
-        
-        (header, payload) = self.get_header_payload ()
-        
+        logger.info ("Message verification succesfull")        
+
+        (header, payload) = self.get_header_payload () 
         ret = self.get_msg_from_datastore (header["correlation_id"], self.table)
         """ method check if message for the passed corrid in the service datastore table"""
         
         if not ret:
-            logger.info ("received msg is not already there in validator ,proceding to insert")
             try:
-                with DataStore (self.db) as dbobj:
-                    #import pdb;pdb.set_trace()
-                    query_str=self.get_queryString()
-                    insert_values=self._get_insert_vaues()
-                    insert_ret =dbobj.insert (query_str,insert_values)
-
-                    if not insert_ret:
-                         return False
-
+                logger.info ("received msg is not already there in validator ,proceding to insert")
+                insert_values=self._get_insert_vaues()
+                insert_ret =self.insert_items(insert_values)
+                if not insert_ret:
+                    return False
             except Exception as e:
                 logger.exception ("Exception occured while Inserting data into validator for msg {}".format (self.msg))
                 raise e
@@ -115,8 +109,13 @@ class ConsumerDataStoreDriver(object):
             return _insert_values
              
 
-    def get_queryString(self):
-           return "insert into " + self.table + " values (?,?,?,?,?,?,?,?)"
+
+    def insert_items(self, values):
+        pholdr = '?'
+        pholdrs = ','.join (pholdr for item in values)
+        query = "Insert into {} values ({})".format (self.table, pholdrs)
+        with DataStore (self.db) as dbobj:
+               return dbobj.insert (query, values)
 
 
 
@@ -125,8 +124,6 @@ class ConsumerDataStoreDriverForGenSummary(ConsumerDataStoreDriver):
            super(ConsumerDataStoreDriverForGenSummary,self).__init__ (msg,table,workflow_monitor=None)
 
 
-      def get_queryString(self):
-            return "insert into " + self.table + " values (?,?,?,?,?,?,?,?,?,?,?,?)"
 
       def _get_insert_vaues(self):
              header,payload=self.get_header_payload()
@@ -150,11 +147,6 @@ class ConsumerDataStoreDriverForApprover(ConsumerDataStoreDriver):
            super(ConsumerDataStoreDriverForApprover,self).__init__ (msg,table,workflow_monitor=None)
 
 
-
-      def get_queryString(self):
-            return "insert into " + self.table + " values (?,?,?,?,?,?,?,?,?)"
-
-
       def _get_insert_vaues(self):
              header,payload=self.get_header_payload()
              try:
@@ -176,8 +168,6 @@ class ConsumerDataStoreDriverForApplier(ConsumerDataStoreDriver):
     def __init__(self, msg, table, workflow_monitor=None):
         super (ConsumerDataStoreDriverForApplier, self).__init__ (msg, table, workflow_monitor=None)
     
-    def get_queryString(self):
-        return "insert into " + self.table + " values (?,?,?,?,?,?,?,?,?,?)"
     
     def _get_insert_vaues(self):
         header, payload = self.get_header_payload ()
@@ -204,9 +194,9 @@ class ConsDataStoreDrvrForChangeRecordCreator(ConsumerDataStoreDriver):
     def __init__(self, msg, table, workflow_monitor=None):
         super (ConsumerDataStoreDriverForApplier, self).__init__ (msg, table, workflow_monitor=None)
     
-    def get_queryString(self):
-        return "insert into " + self.table + " values (?,?,?,?,?,?,?,?,?,?)"
-    
+
+          
+
     def _get_insert_vaues(self):
         header, payload = self.get_header_payload ()
         try:

@@ -188,6 +188,7 @@ class Poller:
     def transform_container_to_json(self,item,_rcp_result_verified):
         try:
             _final_msg = OrderedDict ()
+            import pdb;pdb.set_trace()
             _final_msg["headers"] = item.get_header()
             _final_msg["payload"] = OrderedDict()
             _final_msg["payload"]["summary"]=OrderedDict()
@@ -199,22 +200,16 @@ class Poller:
         except Exception as e:
             logger.error("Exception {} occured while creating header and summary for {}".format(e,item))
             return False
-        import pdb;pdb.set_trace()
+        #import pdb;pdb.set_trace()
         try:
             for srvs_type,gen_msg in _rcp_result_verified.items():
-                import pdb;pdb.set_trace()
                 if srvs_type == 'approver_applier':
                     for _msg in gen_msg:
                         if _msg.type == 'pre_approved_matched':
                             _final_msg["payload"]["summary"]["pre_approved_matched_count"]=_msg.count
                         elif _msg.type == 'pre_approved_not_matched':
                             _final_msg["payload"]["summary"]["pre_approved_not_matched_count"] = _msg.count
-<<<<<<< HEAD
-
                         elif _msg.type == 'applier_result':
-=======
-                        elif _msg.type == 'applier':
->>>>>>> 84fa23f6e74537d1700ea140b2d8eb41f44f3972
                             _final_msg["payload"]["summary"]['applier_success_count'] = _msg.total_success
                             _final_msg["payload"]["summary"]['applier_failed_count'] = _msg.total_failed
                         _final_msg["payload"][_msg.type]=_msg.get_payload()

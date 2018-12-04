@@ -63,25 +63,28 @@ class DataStore:
     def insert(self, query, data):
         """ insert data into table"""
         
-        logger.info ("Insert called :{} with {}".format (query, data))
+        logger.info ("Insert called :{} with {}".format (query,data[5]))
         try:
+            #import pdb;pdb.set_trace()
             self.cur.execute (query, data)
             self.conn.commit ()
-            return True
         except Exception as e:
             logger.error ("Insert of {} failed due to {}".format (data, e),exc_info=True)
             return False
+        logger.info("Insertion is succesfull")
+        return True
     
     def insert_rows(self, query, data):
         """ inserting multiple rows """
         
-        logger.info ("Insert called :{} with {}".format (query, data))
+        logger.info ("Insert called :{} ".format (query))
         try:
             self.cur.executemany (query, data)
             self.conn.commit ()
         except Exception as e:
             logger.exception ("Insert of {} failed due to {}".format (data, e))
             return False
+        logger.info("Insertion is successfull")
         return True
     
     def select_data(self, query, bind=None):

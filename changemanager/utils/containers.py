@@ -34,7 +34,7 @@ class Summary:
         _header["correlation_id"] = self.correlation_id
         _header["username"] = self.username
         _header["ticket_num"] = self.ticket_no
-        _header["type"] = "change_record"
+        _header["type"] = "change_details"
         return _header
     
     def get_payload(self):
@@ -65,7 +65,7 @@ class GenMessages (object):
         _header["correlation_id"] = self.correlation_id
         _header["username"] = self.username
         _header["ticket_num"] = self.ticket_no
-        _header["type"] = "change_record"
+        _header["type"] = self.type
         return _header
     
     def get_payload(self):
@@ -102,6 +102,24 @@ class ApplierMsg (GenMessages):
         self.payload = self.msg[8]
         self.status = self.msg[9]
         self.table='applier'
+
+class ChangeDetailsMsg(GenMessages):
+    def __init__(self, msg):
+        super ().__init__ (msg)
+        self.total_recs=self.msg[6] if self.msg[6] else 0
+        self.recomm_for=self.msg[7] if self.msg[7] else 0
+        self.existing=self.msg[8] if self.msg[8] else 0
+        self.red_flags=self.msg[9] if self.msg[9] else 0
+        self.total_failed=self.msg[10] if self.msg[10] else 0
+        self.total_success=self.msg[11] if self.msg[11] else 0
+        self.pre_approved_matched_count=self.msg[12] if self.msg[12] else 0
+        self.pre_approved_not_matched_count = self.msg[13] if self.msg[13] else 0
+        self.applier_success_count = self.msg[14] if  self.msg[14] else 0
+        self.applier_failed_count = self.msg[15] if self.msg[15] else 0
+        self.payload=self.msg[16] if self.msg[16] else None
+        self.status==self.msg[17] if self.msg[17] else 'pending'
+        self.table='change_details'
+
 
 
 class MessageInfos (object):
@@ -156,6 +174,20 @@ class ApplierInfos (GenMessageInfos):
     
     def add(self, *args):  # Either this
         self.container.append (ApplierMsg(*args))
+
+
+class ChangeDetailsInfos (GenMessageInfos):
+    @classmethod
+    def from_list(cls, rows):  # Or this
+        self = cls ()
+        for row in rows:
+            self.container.append (ChangeDetailsMsg(row))
+        return self.container
+
+    def add(self, *args):  # Either this
+        self.container.append (ApplierMsg(*args))
+
+
 
 if __name__ == '__main__':
     applier_result=[(1, 1543526467.781958, '99', 'kannan', 'srno123', 'applier_result', '{"applier_result": {"ch3-fa-c4r512-fw-1": {"meta-data": {"model": "SRX", "vendor": "Cisco"}, "cmds": {"new_app_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh", "result": "Passed"}], "new_src_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"reason": "ssh error failed to connect", "cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "failed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"reason": "Policy cannot be applied Error", "cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "failed"}], "new_dst_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}]}}, "ch3-fa-c4r512-fw-3": {"meta-data": {"model": "SRX", "vendor": "Cisco"}, "cmds": {"new_app_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh", "result": "Passed"}], "new_src_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "failed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}], "new_dst_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}]}}, "ch3-fa-c4r512-fw-2": {"meta-data": {"model": "SRX", "vendor": "Cisco"}, "cmds": {"new_app_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh", "result": "Passed"}], "new_src_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "failed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}], "new_dst_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}]}}}}', 'pending')]

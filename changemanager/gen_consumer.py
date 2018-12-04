@@ -96,11 +96,11 @@ class ServiceConsumerCallback:
             #import pdb;pdb.set_trace()
             ret = self.get_driver(msg_type)(self.new_msg,table).store()
             if not ret:
-                 raise MsgDataStoreFailed(self.new_msg)
+                 raise MsgDataStoreFailed(self.new_msg['header'])
             return True
         except Exception as e:
             logger.exception(e)
-            traceback.print_exc()         # only for troubleshooting to be removed
+            #traceback.print_exc()         # only for troubleshooting to be removed
             return False
         return False
  

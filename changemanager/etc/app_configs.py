@@ -34,5 +34,5 @@ MSG_TYPE_CONATINER_MAP = {'gen_summary':'MessageInfos',
                           'pre_approved_matched':'ApproverInfos',
                           'pre_approved_not_matched':'ApproverInfos',
                           'applier_result':'ApplierInfos',
-                          'change_record':''}
+                          'change_details':''}
 

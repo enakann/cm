@@ -1,0 +1,584 @@
+2018-12-04 06:16:44,735  kannan poller::<module>()  INFO  (PID: 5703)>  ****************************************************
+2018-12-04 06:16:44,736  kannan poller::<module>()  INFO  (PID: 5703)>  Starting the POLLER Now...........
+2018-12-04 06:16:44,737  kannan poller::process()  INFO  (PID: 5703)>  In Poller process
+2018-12-04 06:16:44,737  kannan poller::process()  INFO  (PID: 5703)>  Getting the Message from gen_sumary table which is at pedning.......
+2018-12-04 06:16:44,738  kannan data_store::inner()  INFO  (PID: 5703)>  Connecting to db
+2018-12-04 06:16:44,740  kannan poller::process()  INFO  (PID: 5703)>  ********working on  Summary(correlation_id=11113,total_recs=30, recomm_for=0, existing=10, red_flags=5)*************
+2018-12-04 06:16:44,741  kannan poller::process()  INFO  (PID: 5703)>  ********working on  Summary(correlation_id=11114,total_recs=30, recomm_for=15, existing=10, red_flags=5)*************
+2018-12-04 06:16:44,742  kannan poller::process()  INFO  (PID: 5703)>  ********working on  Summary(correlation_id=99,total_recs=30, recomm_for=30, existing=10, red_flags=5)*************
+2018-12-04 06:16:44,743  kannan poller::process()  INFO  (PID: 5703)>  ********working on  Summary(correlation_id=1000000,total_recs=30, recomm_for=30, existing=10, red_flags=5)*************
+2018-12-04 06:16:44,743  kannan poller::process()  INFO  (PID: 5703)>  ********working on  Summary(correlation_id=12345,total_recs=30, recomm_for=30, existing=10, red_flags=5)*************
+2018-12-04 06:16:44,744  kannan poller::process()  INFO  (PID: 5703)>  ********working on  Summary(correlation_id=sdsdsdsdsd,total_recs=30, recomm_for=15, existing=10, red_flags=0)*************
+2018-12-04 06:16:44,745  kannan poller::process()  INFO  (PID: 5703)>  ********working on  Summary(correlation_id=pm_not_avl,total_recs=30, recomm_for=15, existing=10, red_flags=0)*************
+2018-12-04 06:16:44,746  kannan data_store::inner()  INFO  (PID: 5703)>  Connecting to db
+2018-12-04 06:16:44,747  kannan poller::verify_msg_is_in_pending()  INFO  (PID: 5703)>  All messages are in pending state we can proceed
+2018-12-04 06:16:44,748  kannan poller::process()  INFO  (PID: 5703)>  recomeneded policy verifying if all message are in pending Summary(correlation_id=pm_not_avl,total_recs=30, recomm_for=15, existing=10, red_flags=0)
+2018-12-04 06:16:44,749  kannan approver_applier::__init__()  INFO  (PID: 5703)>  Dev DB:Should be change to Prod DB /home/navi/changemanager/changemanager/utils/cm.db
+2018-12-04 06:16:44,750  kannan approver_applier::process()  INFO  (PID: 5703)>  construct_data_to_be_collected
+2018-12-04 06:16:44,751  kannan approver_applier::process()  INFO  (PID: 5703)>  construct_data_to_be_collected is done {'pre_approved_matched': pre_approved_matched(collect=None,method=get_pre_approved_matching,data=None, 'pre_approved_not_matched': pre_approved_not_matched(collect=None,method=get_pre_approved_not_matching,data=None, 'applier_result': applier_result(collect=None,method=get_applier_result,data=None}
+2018-12-04 06:16:44,752  kannan approver_applier::process()  INFO  (PID: 5703)>  DB: collecting get_pre_approved_matching from approver
+2018-12-04 06:16:44,753  kannan approver_applier::get_msg_from_datastore()  INFO  (PID: 5703)>  get_msg_from_datastore is called from RecommendPolicyPresent
+2018-12-04 06:16:44,754  kannan data_store::inner()  INFO  (PID: 5703)>  Connecting to db
+2018-12-04 06:16:44,756  kannan approver_applier::process()  INFO  (PID: 5703)>  pre_approved_matching is available setting pre_approved_matched as True
+2018-12-04 06:16:44,757  kannan approver_applier::process()  INFO  (PID: 5703)>  Creating ApproverInfos container
+2018-12-04 06:16:44,759  kannan approver_applier::process()  INFO  (PID: 5703)>  calling pre_approved_matched method for to decide wait strategy
+2018-12-04 06:16:44,761  kannan approver_applier::process()  INFO  (PID: 5703)>  Excepted scenario for collecting message
+2018-12-04 06:16:44,762  kannan approver_applier::process()  INFO  (PID: 5703)>  Starting to collect data for the template {'pre_approved_matched': pre_approved_matched(collect=True,method=get_pre_approved_matching,data=[ApproverMsg(correlation_id =pm_not_avl,type=pre_approved_matched, status=pending)], 'pre_approved_not_matched': pre_approved_not_matched(collect=None,method=get_pre_approved_not_matching,data=None, 'applier_result': applier_result(collect=True,method=get_applier_result,data=None}
+2018-12-04 06:16:44,764  kannan approver_applier::get_msg_from_datastore()  INFO  (PID: 5703)>  get_msg_from_datastore is called from RecommendPolicyPresent
+2018-12-04 06:16:44,765  kannan data_store::inner()  INFO  (PID: 5703)>  Connecting to db
+2018-12-04 06:16:44,767  kannan approver_applier::get_msg_from_datastore()  INFO  (PID: 5703)>  get_msg_from_datastore is called from RecommendPolicyPresent
+2018-12-04 06:16:44,768  kannan data_store::inner()  INFO  (PID: 5703)>  Connecting to db
+2018-12-04 06:16:44,769  kannan approver_applier::process()  INFO  (PID: 5703)>  Data collection done
+2018-12-04 06:16:44,770  kannan approver_applier::process()  INFO  (PID: 5703)>  Verifying collected data
+2018-12-04 06:16:44,772  kannan approver_applier::process()  INFO  (PID: 5703)>  FIRST HALF:Approver& Applier COMPLETED :{'approver_applier': [ApproverMsg(correlation_id =pm_not_avl,type=pre_approved_matched, status=pending), ApplierMsg(correlation_id =pm_not_avl,type=applier_result, status=pending)]}
+2018-12-04 06:16:44,773  kannan approver_applier::process()  INFO  (PID: 5703)>  STARTING NEXT HALF:COLLECT GENERATE MESSAGES
+2018-12-04 06:16:44,774  kannan generator::get_new_existing_redflag_msg()  INFO  (PID: 5703)>  calling accumulate_messages to get new,existing,red flags
+2018-12-04 06:16:44,775  kannan approver_applier::get_msg_from_datastore()  INFO  (PID: 5703)>  get_msg_from_datastore is called from RecommendPolicyPresent
+2018-12-04 06:16:44,776  kannan data_store::inner()  INFO  (PID: 5703)>  Connecting to db
+2018-12-04 06:16:44,780  kannan approver_applier::get_msg_from_datastore()  INFO  (PID: 5703)>  get_msg_from_datastore is called from RecommendPolicyPresent
+2018-12-04 06:16:44,781  kannan data_store::inner()  INFO  (PID: 5703)>  Connecting to db
+2018-12-04 06:16:44,783  kannan generator::accumulate_messages()  INFO  (PID: 5703)>  Succesfully created conatainer from gen messages [GenMessages(correlation_id =pm_not_avl,type=new_policy, status=pending), GenMessages(correlation_id =pm_not_avl,type=existing_policies, status=pending)]
+2018-12-04 06:16:44,784  kannan generator::get_new_existing_redflag_msg()  INFO  (PID: 5703)>  Succesfully recevied  conatainer with all genereate messages [GenMessages(correlation_id =pm_not_avl,type=new_policy, status=pending), GenMessages(correlation_id =pm_not_avl,type=existing_policies, status=pending)]
+2018-12-04 06:16:44,786  kannan approver_applier::process()  INFO  (PID: 5703)>  get_new_existing_redflag_msg has returned [GenMessages(correlation_id =pm_not_avl,type=new_policy, status=pending), GenMessages(correlation_id =pm_not_avl,type=existing_policies, status=pending)]
+2018-12-04 06:16:44,787  kannan approver_applier::process()  INFO  (PID: 5703)>  collecting 1.new_existing_redflag_msgs and 2.final_app_appr_mesg is done
+2018-12-04 06:16:44,789  kannan poller::process()  INFO  (PID: 5703)>  Poller succesfully Finished processing  Summary(correlation_id=pm_not_avl,total_recs=30, recomm_for=15, existing=10, red_flags=0) has returned {'approver_applier': [ApproverMsg(correlation_id =pm_not_avl,type=pre_approved_matched, status=pending), ApplierMsg(correlation_id =pm_not_avl,type=applier_result, status=pending)], 'generator': [GenMessages(correlation_id =pm_not_avl,type=new_policy, status=pending), GenMessages(correlation_id =pm_not_avl,type=existing_policies, status=pending)]}
+2018-12-04 06:16:44,790  kannan poller::process()  INFO  (PID: 5703)>  COMMON PROCESS BEGIN
+2018-12-04 06:16:44,792  kannan poller::process()  INFO  (PID: 5703)>  verifying containers now
+2018-12-04 06:16:44,795  kannan poller::verify_container()  INFO  (PID: 5703)>  Recommended policy is there approver_applier result should be there
+2018-12-04 06:16:44,797  kannan poller::process()  INFO  (PID: 5703)>  container verification succesfull
+2018-12-04 06:16:44,798  kannan poller::process()  INFO  (PID: 5703)>  Transform container to json
+2018-12-04 06:18:15,089  kannan poller::process()  INFO  (PID: 5703)>  Starting the to publish
+2018-12-04 06:18:35,772  kannan poller::set_status_completed()  INFO  (PID: 5703)>  proceding to set status as completed for ['generate', 'gen_summary', 'approver', 'applier']
+2018-12-04 06:18:35,779  kannan data_store::inner()  INFO  (PID: 5703)>  Connecting to db
+2018-12-04 06:18:35,786  kannan poller::set_status_completed()  INFO  (PID: 5703)>  update generate set status="pending" where correlation_id ="pm_not_avl"
+2018-12-04 06:18:35,792  kannan data_store::update()  INFO  (PID: 5703)>  following query -> update generate set status="pending" where correlation_id ="pm_not_avl" is called for -->None
+2018-12-04 06:18:35,819  kannan poller::set_status_completed()  INFO  (PID: 5703)>  update gen_summary set status="pending" where correlation_id ="pm_not_avl"
+2018-12-04 06:18:35,828  kannan data_store::update()  INFO  (PID: 5703)>  following query -> update gen_summary set status="pending" where correlation_id ="pm_not_avl" is called for -->None
+2018-12-04 06:18:35,850  kannan poller::set_status_completed()  INFO  (PID: 5703)>  update approver set status="pending" where correlation_id ="pm_not_avl"
+2018-12-04 06:18:35,856  kannan data_store::update()  INFO  (PID: 5703)>  following query -> update approver set status="pending" where correlation_id ="pm_not_avl" is called for -->None
+2018-12-04 06:18:35,879  kannan poller::set_status_completed()  INFO  (PID: 5703)>  update applier set status="pending" where correlation_id ="pm_not_avl"
+2018-12-04 06:18:35,890  kannan data_store::update()  INFO  (PID: 5703)>  following query -> update applier set status="pending" where correlation_id ="pm_not_avl" is called for -->None
+2018-12-04 06:18:37,779  kannan poller::process()  INFO  (PID: 5703)>  *****  FINISEHD WORKING ON --->Summary(correlation_id=pm_not_avl,total_recs=30, recomm_for=15, existing=10, red_flags=0)  ********************
+2018-12-04 06:23:51,762  kannan poller::<module>()  INFO  (PID: 6212)>  ****************************************************
+2018-12-04 06:23:51,763  kannan poller::<module>()  INFO  (PID: 6212)>  Starting the POLLER Now...........
+2018-12-04 06:23:51,764  kannan poller::process()  INFO  (PID: 6212)>  In Poller process
+2018-12-04 06:23:51,765  kannan poller::process()  INFO  (PID: 6212)>  Getting the Message from gen_sumary table which is at pedning.......
+2018-12-04 06:23:51,766  kannan data_store::inner()  INFO  (PID: 6212)>  Connecting to db
+2018-12-04 06:23:51,768  kannan poller::process()  INFO  (PID: 6212)>  ********working on  Summary(correlation_id=11113,total_recs=30, recomm_for=0, existing=10, red_flags=5)*************
+2018-12-04 06:23:51,770  kannan poller::process()  INFO  (PID: 6212)>  ********working on  Summary(correlation_id=11114,total_recs=30, recomm_for=15, existing=10, red_flags=5)*************
+2018-12-04 06:23:51,771  kannan poller::process()  INFO  (PID: 6212)>  ********working on  Summary(correlation_id=99,total_recs=30, recomm_for=30, existing=10, red_flags=5)*************
+2018-12-04 06:23:51,773  kannan poller::process()  INFO  (PID: 6212)>  ********working on  Summary(correlation_id=1000000,total_recs=30, recomm_for=30, existing=10, red_flags=5)*************
+2018-12-04 06:23:51,774  kannan poller::process()  INFO  (PID: 6212)>  ********working on  Summary(correlation_id=12345,total_recs=30, recomm_for=30, existing=10, red_flags=5)*************
+2018-12-04 06:23:51,775  kannan poller::process()  INFO  (PID: 6212)>  ********working on  Summary(correlation_id=sdsdsdsdsd,total_recs=30, recomm_for=15, existing=10, red_flags=0)*************
+2018-12-04 06:23:51,776  kannan poller::process()  INFO  (PID: 6212)>  ********working on  Summary(correlation_id=pm_not_avl,total_recs=30, recomm_for=15, existing=10, red_flags=0)*************
+2018-12-04 06:23:51,777  kannan data_store::inner()  INFO  (PID: 6212)>  Connecting to db
+2018-12-04 06:23:51,779  kannan poller::verify_msg_is_in_pending()  INFO  (PID: 6212)>  All messages are in pending state we can proceed
+2018-12-04 06:23:51,780  kannan poller::process()  INFO  (PID: 6212)>  recomeneded policy verifying if all message are in pending Summary(correlation_id=pm_not_avl,total_recs=30, recomm_for=15, existing=10, red_flags=0)
+2018-12-04 06:23:51,781  kannan approver_applier::__init__()  INFO  (PID: 6212)>  Dev DB:Should be change to Prod DB /home/navi/changemanager/changemanager/utils/cm.db
+2018-12-04 06:23:51,782  kannan approver_applier::process()  INFO  (PID: 6212)>  construct_data_to_be_collected
+2018-12-04 06:23:51,784  kannan approver_applier::process()  INFO  (PID: 6212)>  construct_data_to_be_collected is done {'pre_approved_matched': pre_approved_matched(collect=None,method=get_pre_approved_matching,data=None, 'pre_approved_not_matched': pre_approved_not_matched(collect=None,method=get_pre_approved_not_matching,data=None, 'applier_result': applier_result(collect=None,method=get_applier_result,data=None}
+2018-12-04 06:23:51,785  kannan approver_applier::process()  INFO  (PID: 6212)>  DB: collecting get_pre_approved_matching from approver
+2018-12-04 06:23:51,787  kannan approver_applier::get_msg_from_datastore()  INFO  (PID: 6212)>  get_msg_from_datastore is called from RecommendPolicyPresent
+2018-12-04 06:23:51,788  kannan data_store::inner()  INFO  (PID: 6212)>  Connecting to db
+2018-12-04 06:23:51,791  kannan approver_applier::process()  INFO  (PID: 6212)>  pre_approved_matching is available setting pre_approved_matched as True
+2018-12-04 06:23:51,792  kannan approver_applier::process()  INFO  (PID: 6212)>  Creating ApproverInfos container
+2018-12-04 06:23:51,793  kannan approver_applier::process()  INFO  (PID: 6212)>  calling pre_approved_matched method for to decide wait strategy
+2018-12-04 06:23:51,794  kannan approver_applier::process()  INFO  (PID: 6212)>  Excepted scenario for collecting message
+2018-12-04 06:23:51,795  kannan approver_applier::process()  INFO  (PID: 6212)>  Starting to collect data for the template {'pre_approved_matched': pre_approved_matched(collect=True,method=get_pre_approved_matching,data=[ApproverMsg(correlation_id =pm_not_avl,type=pre_approved_matched, status=pending)], 'pre_approved_not_matched': pre_approved_not_matched(collect=None,method=get_pre_approved_not_matching,data=None, 'applier_result': applier_result(collect=True,method=get_applier_result,data=None}
+2018-12-04 06:23:51,796  kannan approver_applier::get_msg_from_datastore()  INFO  (PID: 6212)>  get_msg_from_datastore is called from RecommendPolicyPresent
+2018-12-04 06:23:51,798  kannan data_store::inner()  INFO  (PID: 6212)>  Connecting to db
+2018-12-04 06:23:51,801  kannan approver_applier::get_msg_from_datastore()  INFO  (PID: 6212)>  get_msg_from_datastore is called from RecommendPolicyPresent
+2018-12-04 06:23:51,803  kannan data_store::inner()  INFO  (PID: 6212)>  Connecting to db
+2018-12-04 06:23:51,804  kannan approver_applier::process()  INFO  (PID: 6212)>  Data collection done
+2018-12-04 06:23:51,805  kannan approver_applier::process()  INFO  (PID: 6212)>  Verifying collected data
+2018-12-04 06:23:51,806  kannan approver_applier::process()  INFO  (PID: 6212)>  FIRST HALF:Approver& Applier COMPLETED :{'approver_applier': [ApproverMsg(correlation_id =pm_not_avl,type=pre_approved_matched, status=pending), ApplierMsg(correlation_id =pm_not_avl,type=applier_result, status=pending)]}
+2018-12-04 06:23:51,807  kannan approver_applier::process()  INFO  (PID: 6212)>  STARTING NEXT HALF:COLLECT GENERATE MESSAGES
+2018-12-04 06:23:51,808  kannan generator::get_new_existing_redflag_msg()  INFO  (PID: 6212)>  calling accumulate_messages to get new,existing,red flags
+2018-12-04 06:23:51,809  kannan approver_applier::get_msg_from_datastore()  INFO  (PID: 6212)>  get_msg_from_datastore is called from RecommendPolicyPresent
+2018-12-04 06:23:51,809  kannan data_store::inner()  INFO  (PID: 6212)>  Connecting to db
+2018-12-04 06:23:51,811  kannan approver_applier::get_msg_from_datastore()  INFO  (PID: 6212)>  get_msg_from_datastore is called from RecommendPolicyPresent
+2018-12-04 06:23:51,812  kannan data_store::inner()  INFO  (PID: 6212)>  Connecting to db
+2018-12-04 06:23:51,813  kannan generator::accumulate_messages()  INFO  (PID: 6212)>  Succesfully created conatainer from gen messages [GenMessages(correlation_id =pm_not_avl,type=new_policy, status=pending), GenMessages(correlation_id =pm_not_avl,type=existing_policies, status=pending)]
+2018-12-04 06:23:51,815  kannan generator::get_new_existing_redflag_msg()  INFO  (PID: 6212)>  Succesfully recevied  conatainer with all genereate messages [GenMessages(correlation_id =pm_not_avl,type=new_policy, status=pending), GenMessages(correlation_id =pm_not_avl,type=existing_policies, status=pending)]
+2018-12-04 06:23:51,818  kannan approver_applier::process()  INFO  (PID: 6212)>  get_new_existing_redflag_msg has returned [GenMessages(correlation_id =pm_not_avl,type=new_policy, status=pending), GenMessages(correlation_id =pm_not_avl,type=existing_policies, status=pending)]
+2018-12-04 06:23:51,819  kannan approver_applier::process()  INFO  (PID: 6212)>  collecting 1.new_existing_redflag_msgs and 2.final_app_appr_mesg is done
+2018-12-04 06:23:51,820  kannan poller::process()  INFO  (PID: 6212)>  Poller succesfully Finished processing  Summary(correlation_id=pm_not_avl,total_recs=30, recomm_for=15, existing=10, red_flags=0) has returned {'approver_applier': [ApproverMsg(correlation_id =pm_not_avl,type=pre_approved_matched, status=pending), ApplierMsg(correlation_id =pm_not_avl,type=applier_result, status=pending)], 'generator': [GenMessages(correlation_id =pm_not_avl,type=new_policy, status=pending), GenMessages(correlation_id =pm_not_avl,type=existing_policies, status=pending)]}
+2018-12-04 06:23:51,822  kannan poller::process()  INFO  (PID: 6212)>  COMMON PROCESS BEGIN
+2018-12-04 06:23:51,823  kannan poller::process()  INFO  (PID: 6212)>  verifying containers now
+2018-12-04 06:23:51,824  kannan poller::verify_container()  INFO  (PID: 6212)>  Recommended policy is there approver_applier result should be there
+2018-12-04 06:23:51,825  kannan poller::process()  INFO  (PID: 6212)>  container verification succesfull
+2018-12-04 06:23:51,826  kannan poller::process()  INFO  (PID: 6212)>  Transform container to json
+2018-12-04 06:52:35,346  kannan gen_consumer::<module>()  INFO  (PID: 8070)>  Validator started to Execute at 1543886555.3462572
+2018-12-04 06:52:35,347  kannan gen_consumer::<module>()  INFO  (PID: 8070)>  reading configs required for validator consumer from file consumer_config.yml in utils dir
+2018-12-04 06:52:35,357  kannan gen_consumer::<module>()  INFO  (PID: 8070)>  Starting to consume
+2018-12-04 06:52:56,016  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 8082)>  getting config for publishing
+2018-12-04 06:52:56,018  aggregator utility_producer::_get_config()  INFO  (PID: 8082)>  In _get_config retrieved publisher type is gen_cm
+2018-12-04 06:52:56,028  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 8082)>  getting message to be publisehd
+2018-12-04 06:52:56,029  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 8082)>  Emptying the table
+2018-12-04 06:52:56,029  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 8082)>  Publishing the message
+2018-12-04 06:52:56,046  kannan gen_consumer::process()  INFO  (PID: 8070)>  strting datastore process for
+2018-12-04 06:52:56,047  kannan gen_consumer::process()  INFO  (PID: 8070)>  Message verification passed
+2018-12-04 06:52:56,048  kannan gen_consumer::process()  INFO  (PID: 8070)>  msg {'correlation_id': 'ttt', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 06:52:56,049  kannan data_store_driver::store()  INFO  (PID: 8070)>  Message verification succesfull
+2018-12-04 06:52:56,050  kannan data_store::inner()  INFO  (PID: 8070)>  Connecting to db
+2018-12-04 06:52:56,057  kannan data_store_driver::store()  ERROR  (PID: 8070)>  Message already exist in the table
+2018-12-04 06:52:56,062  kannan gen_consumer::process()  ERROR  (PID: 8070)>  {'header': {'correlation_id': 'ttt', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'}, 'payload': {'summary': {'total_success': 10, 'total_failed': 5}, 'applier_result': {'ch3-fa-c4r512-fw-1': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed', 'reason': 'ssh error failed to connect'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed', 'reason': 'Policy cannot be applied Error'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}, 'ch3-fa-c4r512-fw-2': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}, 'ch3-fa-c4r512-fw-3': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}}}}
+Traceback (most recent call last):
+  File "gen_consumer.py", line 99, in process
+    raise MsgDataStoreFailed(self.new_msg)
+MsgDataStoreFailed: {'header': {'correlation_id': 'ttt', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'}, 'payload': {'summary': {'total_success': 10, 'total_failed': 5}, 'applier_result': {'ch3-fa-c4r512-fw-1': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed', 'reason': 'ssh error failed to connect'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed', 'reason': 'Policy cannot be applied Error'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}, 'ch3-fa-c4r512-fw-2': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}, 'ch3-fa-c4r512-fw-3': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}}}}
+2018-12-04 06:53:33,357  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 8156)>  getting config for publishing
+2018-12-04 06:53:33,358  aggregator utility_producer::_get_config()  INFO  (PID: 8156)>  In _get_config retrieved publisher type is gen_cm
+2018-12-04 06:53:33,367  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 8156)>  getting message to be publisehd
+2018-12-04 06:53:33,368  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 8156)>  Emptying the table
+2018-12-04 06:53:33,368  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 8156)>  Publishing the message
+2018-12-04 06:53:33,387  kannan gen_consumer::process()  INFO  (PID: 8070)>  strting datastore process for
+2018-12-04 06:53:33,389  kannan gen_consumer::process()  INFO  (PID: 8070)>  Message verification passed
+2018-12-04 06:53:33,392  kannan gen_consumer::process()  INFO  (PID: 8070)>  msg {'correlation_id': 'kkk', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 06:53:33,394  kannan data_store_driver::store()  INFO  (PID: 8070)>  Message verification succesfull
+2018-12-04 06:53:33,400  kannan data_store::inner()  INFO  (PID: 8070)>  Connecting to db
+2018-12-04 06:53:33,403  kannan data_store::select_data()  ERROR  (PID: 8070)>  Select failed :select * from applier where correlation_id=:1 and type=:2-('kkk', 'applier_result') due to ('select * from applier where correlation_id=:1 and type=:2', ('kkk', 'applier_result'), [])
+Traceback (most recent call last):
+  File "/home/navi/changemanager/changemanager/utils/data_store.py", line 98, in select_data
+    raise NoDataAvailableException (query, bind, data)
+utils.data_store.NoDataAvailableException: ('select * from applier where correlation_id=:1 and type=:2', ('kkk', 'applier_result'), [])
+2018-12-04 06:53:33,407  kannan data_store_driver::store()  INFO  (PID: 8070)>  received msg is not already there in validator ,proceding to insert
+2018-12-04 06:53:33,410  kannan data_store::inner()  INFO  (PID: 8070)>  Connecting to db
+2018-12-04 06:53:33,417  kannan data_store::insert()  INFO  (PID: 8070)>  Insert called :Insert into applier values (?,?,?,?,?,?,?,?,?,?) with [None, datetime.datetime(2018, 12, 4, 6, 53, 33, 410542), 'kkk', 'kannan', 'srno123', 'applier_result', 5, 10, '{"summary": {"total_success": 10, "total_failed": 5}, "applier_result": {"ch3-fa-c4r512-fw-1": {"meta-data": {"vendor": "Cisco", "model": "SRX"}, "cmds": {"new_src_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "failed", "reason": "ssh error failed to connect"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "failed", "reason": "Policy cannot be applied Error"}], "new_dst_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}], "new_app_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh", "result": "Passed"}]}}, "ch3-fa-c4r512-fw-2": {"meta-data": {"vendor": "Cisco", "model": "SRX"}, "cmds": {"new_src_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "failed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}], "new_dst_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}], "new_app_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh", "result": "Passed"}]}}, "ch3-fa-c4r512-fw-3": {"meta-data": {"vendor": "Cisco", "model": "SRX"}, "cmds": {"new_src_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "failed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}], "new_dst_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}], "new_app_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh", "result": "Passed"}]}}}}', 'pending']
+2018-12-04 06:57:29,658  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 8516)>  getting config for publishing
+2018-12-04 06:57:29,658  aggregator utility_producer::_get_config()  INFO  (PID: 8516)>  In _get_config retrieved publisher type is gen_cm
+2018-12-04 06:57:29,681  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 8516)>  getting message to be publisehd
+2018-12-04 06:57:29,682  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 8516)>  Emptying the table
+2018-12-04 06:57:29,683  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 8516)>  Publishing the message
+2018-12-04 06:58:12,159  kannan gen_consumer::<module>()  INFO  (PID: 9495)>  Validator started to Execute at 1543886892.1598463
+2018-12-04 06:58:12,162  kannan gen_consumer::<module>()  INFO  (PID: 9495)>  reading configs required for validator consumer from file consumer_config.yml in utils dir
+2018-12-04 06:58:12,176  kannan gen_consumer::<module>()  INFO  (PID: 9495)>  Starting to consume
+2018-12-04 06:58:12,202  kannan gen_consumer::process()  INFO  (PID: 9495)>  strting datastore process for
+2018-12-04 06:58:12,204  kannan gen_consumer::process()  INFO  (PID: 9495)>  Message verification passed
+2018-12-04 06:58:12,206  kannan gen_consumer::process()  INFO  (PID: 9495)>  msg {'correlation_id': 'kkk', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 06:58:12,208  kannan data_store_driver::store()  INFO  (PID: 9495)>  Message verification succesfull
+2018-12-04 06:58:12,210  kannan gen_consumer::process()  ERROR  (PID: 9495)>  name 'header' is not defined
+Traceback (most recent call last):
+  File "gen_consumer.py", line 97, in process
+    ret = self.get_driver(msg_type)(self.new_msg,table).store()
+  File "/home/navi/changemanager/changemanager/utils/data_store_driver.py", line 74, in store
+    ret = self.get_msg_from_datastore (header["correlation_id"], self.table)
+NameError: name 'header' is not defined
+2018-12-04 06:58:48,028  kannan gen_consumer::<module>()  ERROR  (PID: 9495)>  KeyboardInterrupt
+Traceback (most recent call last):
+  File "gen_consumer.py", line 151, in <module>
+    conn.consume(callback)
+  File "/home/navi/changemanager/changemanager/lib/consumer.py", line 37, in consume
+    self.channel.start_consuming ()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 1822, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 749, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 458, in _flush_output
+    self._impl.ioloop.poll()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 495, in poll
+    self._poller.poll()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 1102, in poll
+    events = self._poll.poll(self._get_max_wait())
+KeyboardInterrupt
+2018-12-04 07:01:44,509  kannan gen_consumer::<module>()  INFO  (PID: 17901)>  Validator started to Execute at 1543887104.5092423
+2018-12-04 07:01:44,510  kannan gen_consumer::<module>()  INFO  (PID: 17901)>  reading configs required for validator consumer from file consumer_config.yml in utils dir
+2018-12-04 07:01:44,518  kannan gen_consumer::<module>()  INFO  (PID: 17901)>  Starting to consume
+2018-12-04 07:01:47,312  kannan gen_consumer::<module>()  ERROR  (PID: 17901)>  KeyboardInterrupt
+Traceback (most recent call last):
+  File "gen_consumer.py", line 151, in <module>
+    conn.consume(callback)
+  File "/home/navi/changemanager/changemanager/lib/consumer.py", line 37, in consume
+    self.channel.start_consuming ()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 1822, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 749, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 458, in _flush_output
+    self._impl.ioloop.poll()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 495, in poll
+    self._poller.poll()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 1102, in poll
+    events = self._poll.poll(self._get_max_wait())
+KeyboardInterrupt
+2018-12-04 07:03:09,106  kannan gen_consumer::<module>()  INFO  (PID: 18006)>  Validator started to Execute at 1543887189.1061723
+2018-12-04 07:03:09,107  kannan gen_consumer::<module>()  INFO  (PID: 18006)>  reading configs required for validator consumer from file consumer_config.yml in utils dir
+2018-12-04 07:03:09,113  kannan gen_consumer::<module>()  INFO  (PID: 18006)>  Starting to consume
+2018-12-04 07:03:11,885  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18011)>  getting config for publishing
+2018-12-04 07:03:11,886  aggregator utility_producer::_get_config()  INFO  (PID: 18011)>  In _get_config retrieved publisher type is gen_cm
+2018-12-04 07:03:11,897  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18011)>  getting message to be publisehd
+2018-12-04 07:03:11,899  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18011)>  Emptying the table
+2018-12-04 07:03:11,900  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18011)>  Publishing the message
+2018-12-04 07:03:11,921  kannan gen_consumer::process()  INFO  (PID: 18006)>  strting datastore process for
+2018-12-04 07:03:11,922  kannan gen_consumer::process()  INFO  (PID: 18006)>  Message verification passed
+2018-12-04 07:03:11,923  kannan gen_consumer::process()  INFO  (PID: 18006)>  msg {'correlation_id': 'kkk', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 07:03:11,924  kannan data_store_driver::store()  INFO  (PID: 18006)>  Message verification succesfull
+2018-12-04 07:03:11,927  kannan data_store::inner()  INFO  (PID: 18006)>  Connecting to db
+2018-12-04 07:03:11,931  kannan data_store_driver::store()  ERROR  (PID: 18006)>  Message already exist in the table
+2018-12-04 07:03:11,934  kannan gen_consumer::process()  ERROR  (PID: 18006)>  {'header': {'correlation_id': 'kkk', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'}, 'payload': {'summary': {'total_success': 10, 'total_failed': 5}, 'applier_result': {'ch3-fa-c4r512-fw-1': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed', 'reason': 'ssh error failed to connect'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed', 'reason': 'Policy cannot be applied Error'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}, 'ch3-fa-c4r512-fw-2': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}, 'ch3-fa-c4r512-fw-3': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}}}}
+Traceback (most recent call last):
+  File "gen_consumer.py", line 99, in process
+    raise MsgDataStoreFailed(self.new_msg)
+MsgDataStoreFailed: {'header': {'correlation_id': 'kkk', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'}, 'payload': {'summary': {'total_success': 10, 'total_failed': 5}, 'applier_result': {'ch3-fa-c4r512-fw-1': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed', 'reason': 'ssh error failed to connect'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed', 'reason': 'Policy cannot be applied Error'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}, 'ch3-fa-c4r512-fw-2': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}, 'ch3-fa-c4r512-fw-3': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}}}}
+2018-12-04 07:03:39,013  kannan gen_consumer::<module>()  ERROR  (PID: 18006)>  KeyboardInterrupt
+Traceback (most recent call last):
+  File "gen_consumer.py", line 151, in <module>
+    conn.consume(callback)
+  File "/home/navi/changemanager/changemanager/lib/consumer.py", line 37, in consume
+    self.channel.start_consuming ()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 1822, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 749, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 458, in _flush_output
+    self._impl.ioloop.poll()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 495, in poll
+    self._poller.poll()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 1102, in poll
+    events = self._poll.poll(self._get_max_wait())
+KeyboardInterrupt
+2018-12-04 07:05:17,473  kannan gen_consumer::<module>()  INFO  (PID: 18151)>  Validator started to Execute at 1543887317.4739342
+2018-12-04 07:05:17,475  kannan gen_consumer::<module>()  INFO  (PID: 18151)>  reading configs required for validator consumer from file consumer_config.yml in utils dir
+2018-12-04 07:05:17,481  kannan gen_consumer::<module>()  INFO  (PID: 18151)>  Starting to consume
+2018-12-04 07:05:22,849  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18193)>  getting config for publishing
+2018-12-04 07:05:22,850  aggregator utility_producer::_get_config()  INFO  (PID: 18193)>  In _get_config retrieved publisher type is gen_cm
+2018-12-04 07:05:22,859  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18193)>  getting message to be publisehd
+2018-12-04 07:05:22,860  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18193)>  Emptying the table
+2018-12-04 07:05:22,861  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18193)>  Publishing the message
+2018-12-04 07:05:22,878  kannan gen_consumer::process()  INFO  (PID: 18151)>  strting datastore process for
+2018-12-04 07:05:22,879  kannan gen_consumer::process()  INFO  (PID: 18151)>  Message verification passed
+2018-12-04 07:05:22,881  kannan gen_consumer::process()  INFO  (PID: 18151)>  msg {'correlation_id': 'kkk', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 07:05:22,884  kannan data_store_driver::store()  INFO  (PID: 18151)>  Message verification succesfull
+2018-12-04 07:05:22,885  kannan data_store::inner()  INFO  (PID: 18151)>  Connecting to db
+2018-12-04 07:05:22,888  kannan data_store_driver::store()  ERROR  (PID: 18151)>  Message already exist in the table
+2018-12-04 07:05:22,894  kannan gen_consumer::process()  ERROR  (PID: 18151)>  {'header': {'correlation_id': 'kkk', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'}, 'payload': {'summary': {'total_success': 10, 'total_failed': 5}, 'applier_result': {'ch3-fa-c4r512-fw-1': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed', 'reason': 'ssh error failed to connect'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed', 'reason': 'Policy cannot be applied Error'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}, 'ch3-fa-c4r512-fw-2': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}, 'ch3-fa-c4r512-fw-3': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}}}}
+Traceback (most recent call last):
+  File "gen_consumer.py", line 99, in process
+    raise MsgDataStoreFailed(self.new_msg)
+MsgDataStoreFailed: {'header': {'correlation_id': 'kkk', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'}, 'payload': {'summary': {'total_success': 10, 'total_failed': 5}, 'applier_result': {'ch3-fa-c4r512-fw-1': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed', 'reason': 'ssh error failed to connect'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed', 'reason': 'Policy cannot be applied Error'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}, 'ch3-fa-c4r512-fw-2': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}, 'ch3-fa-c4r512-fw-3': {'meta-data': {'vendor': 'Cisco', 'model': 'SRX'}, 'cmds': {'new_src_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'failed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32', 'result': 'Passed'}], 'new_dst_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}, {'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17', 'result': 'Passed'}], 'new_app_cmd': [{'cmd': 'set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh', 'result': 'Passed'}]}}}}}
+2018-12-04 07:05:41,987  kannan gen_consumer::<module>()  ERROR  (PID: 18151)>  KeyboardInterrupt
+Traceback (most recent call last):
+  File "gen_consumer.py", line 151, in <module>
+    conn.consume(callback)
+  File "/home/navi/changemanager/changemanager/lib/consumer.py", line 37, in consume
+    self.channel.start_consuming ()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 1822, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 749, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 458, in _flush_output
+    self._impl.ioloop.poll()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 495, in poll
+    self._poller.poll()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 1102, in poll
+    events = self._poll.poll(self._get_max_wait())
+KeyboardInterrupt
+2018-12-04 07:06:10,702  kannan gen_consumer::<module>()  INFO  (PID: 18208)>  Validator started to Execute at 1543887370.702815
+2018-12-04 07:06:10,704  kannan gen_consumer::<module>()  INFO  (PID: 18208)>  reading configs required for validator consumer from file consumer_config.yml in utils dir
+2018-12-04 07:06:10,711  kannan gen_consumer::<module>()  INFO  (PID: 18208)>  Starting to consume
+2018-12-04 07:06:13,164  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18212)>  getting config for publishing
+2018-12-04 07:06:13,164  aggregator utility_producer::_get_config()  INFO  (PID: 18212)>  In _get_config retrieved publisher type is gen_cm
+2018-12-04 07:06:13,173  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18212)>  getting message to be publisehd
+2018-12-04 07:06:13,174  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18212)>  Emptying the table
+2018-12-04 07:06:13,174  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18212)>  Publishing the message
+2018-12-04 07:06:13,195  kannan gen_consumer::process()  INFO  (PID: 18208)>  strting datastore process for
+2018-12-04 07:06:13,196  kannan gen_consumer::process()  INFO  (PID: 18208)>  Message verification passed
+2018-12-04 07:06:13,199  kannan gen_consumer::process()  INFO  (PID: 18208)>  msg {'correlation_id': 'kkk', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 07:06:13,203  kannan data_store_driver::store()  INFO  (PID: 18208)>  Message verification succesfull
+2018-12-04 07:06:13,206  kannan data_store::inner()  INFO  (PID: 18208)>  Connecting to db
+2018-12-04 07:06:13,211  kannan data_store_driver::store()  ERROR  (PID: 18208)>  Message already exist in the table
+2018-12-04 07:06:13,212  kannan gen_consumer::process()  ERROR  (PID: 18208)>  {'correlation_id': 'kkk', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'}
+Traceback (most recent call last):
+  File "gen_consumer.py", line 99, in process
+    raise MsgDataStoreFailed(self.new_msg['header'])
+MsgDataStoreFailed: {'correlation_id': 'kkk', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'}
+2018-12-04 07:06:49,479  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18287)>  getting config for publishing
+2018-12-04 07:06:49,479  aggregator utility_producer::_get_config()  INFO  (PID: 18287)>  In _get_config retrieved publisher type is gen_cm
+2018-12-04 07:06:49,489  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18287)>  getting message to be publisehd
+2018-12-04 07:06:49,490  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18287)>  Emptying the table
+2018-12-04 07:06:49,491  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18287)>  Publishing the message
+2018-12-04 07:06:49,520  kannan gen_consumer::process()  INFO  (PID: 18208)>  strting datastore process for
+2018-12-04 07:06:49,521  kannan gen_consumer::process()  INFO  (PID: 18208)>  Message verification passed
+2018-12-04 07:06:49,522  kannan gen_consumer::process()  INFO  (PID: 18208)>  msg {'correlation_id': 'firms2', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 07:06:49,523  kannan data_store_driver::store()  INFO  (PID: 18208)>  Message verification succesfull
+2018-12-04 07:06:49,527  kannan data_store::inner()  INFO  (PID: 18208)>  Connecting to db
+2018-12-04 07:06:49,534  kannan data_store::select_data()  ERROR  (PID: 18208)>  Select failed :select * from applier where correlation_id=:1 and type=:2-('firms2', 'applier_result') due to ('select * from applier where correlation_id=:1 and type=:2', ('firms2', 'applier_result'), [])
+Traceback (most recent call last):
+  File "/home/navi/changemanager/changemanager/utils/data_store.py", line 98, in select_data
+    raise NoDataAvailableException (query, bind, data)
+utils.data_store.NoDataAvailableException: ('select * from applier where correlation_id=:1 and type=:2', ('firms2', 'applier_result'), [])
+2018-12-04 07:06:49,540  kannan data_store_driver::store()  INFO  (PID: 18208)>  received msg is not already there in validator ,proceding to insert
+2018-12-04 07:06:49,553  kannan data_store::inner()  INFO  (PID: 18208)>  Connecting to db
+2018-12-04 07:06:49,554  kannan data_store::insert()  INFO  (PID: 18208)>  Insert called :Insert into applier values (?,?,?,?,?,?,?,?,?,?) with [None, datetime.datetime(2018, 12, 4, 7, 6, 49, 549331), 'firms2', 'kannan', 'srno123', 'applier_result', 5, 10, '{"summary": {"total_success": 10, "total_failed": 5}, "applier_result": {"ch3-fa-c4r512-fw-1": {"meta-data": {"vendor": "Cisco", "model": "SRX"}, "cmds": {"new_src_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "failed", "reason": "ssh error failed to connect"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "failed", "reason": "Policy cannot be applied Error"}], "new_dst_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}], "new_app_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh", "result": "Passed"}]}}, "ch3-fa-c4r512-fw-2": {"meta-data": {"vendor": "Cisco", "model": "SRX"}, "cmds": {"new_src_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "failed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}], "new_dst_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}], "new_app_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh", "result": "Passed"}]}}, "ch3-fa-c4r512-fw-3": {"meta-data": {"vendor": "Cisco", "model": "SRX"}, "cmds": {"new_src_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "failed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match source-address us2-chicago-colo-opc-v142-10.72.21.65/32", "result": "Passed"}], "new_dst_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}, {"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match destination-address b2b22.bankofamerica.com-171.162.110.17", "result": "Passed"}], "new_app_cmd": [{"cmd": "set security policies from-zone PRIVATE-MT to-zone UNTRUST policy 180814-001010_psane_1 match application junos-ssh", "result": "Passed"}]}}}}', 'pending']
+2018-12-04 07:08:06,379  kannan gen_consumer::<module>()  ERROR  (PID: 18208)>  KeyboardInterrupt
+Traceback (most recent call last):
+  File "gen_consumer.py", line 151, in <module>
+    conn.consume(callback)
+  File "/home/navi/changemanager/changemanager/lib/consumer.py", line 37, in consume
+    self.channel.start_consuming ()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 1822, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 749, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 458, in _flush_output
+    self._impl.ioloop.poll()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 495, in poll
+    self._poller.poll()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 1102, in poll
+    events = self._poll.poll(self._get_max_wait())
+KeyboardInterrupt
+2018-12-04 07:09:19,612  kannan gen_consumer::<module>()  INFO  (PID: 18470)>  Validator started to Execute at 1543887559.612427
+2018-12-04 07:09:19,613  kannan gen_consumer::<module>()  INFO  (PID: 18470)>  reading configs required for validator consumer from file consumer_config.yml in utils dir
+2018-12-04 07:09:19,620  kannan gen_consumer::<module>()  INFO  (PID: 18470)>  Starting to consume
+2018-12-04 07:09:53,297  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18587)>  getting config for publishing
+2018-12-04 07:09:53,298  aggregator utility_producer::_get_config()  INFO  (PID: 18587)>  In _get_config retrieved publisher type is gen_cm
+2018-12-04 07:09:53,307  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18587)>  getting message to be publisehd
+2018-12-04 07:09:53,308  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18587)>  Emptying the table
+2018-12-04 07:09:53,308  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18587)>  Publishing the message
+2018-12-04 07:09:53,328  kannan gen_consumer::process()  INFO  (PID: 18470)>  strting datastore process for
+2018-12-04 07:09:53,330  kannan gen_consumer::process()  INFO  (PID: 18470)>  Message verification passed
+2018-12-04 07:09:53,331  kannan gen_consumer::process()  INFO  (PID: 18470)>  msg {'correlation_id': '111firms2', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 07:09:53,336  kannan data_store_driver::store()  INFO  (PID: 18470)>  Message verification succesfull
+2018-12-04 07:09:53,338  kannan data_store::inner()  INFO  (PID: 18470)>  Connecting to db
+2018-12-04 07:09:53,345  kannan data_store::select_data()  ERROR  (PID: 18470)>  Select failed :select * from applier where correlation_id=:1 and type=:2-('111firms2', 'applier_result') due to ('select * from applier where correlation_id=:1 and type=:2', ('111firms2', 'applier_result'), [])
+Traceback (most recent call last):
+  File "/home/navi/changemanager/changemanager/utils/data_store.py", line 98, in select_data
+    raise NoDataAvailableException (query, bind, data)
+utils.data_store.NoDataAvailableException: ('select * from applier where correlation_id=:1 and type=:2', ('111firms2', 'applier_result'), [])
+2018-12-04 07:09:53,348  kannan data_store_driver::store()  INFO  (PID: 18470)>  received msg is not already there in validator ,proceding to insert
+2018-12-04 07:09:53,351  kannan data_store::inner()  INFO  (PID: 18470)>  Connecting to db
+2018-12-04 07:09:53,354  kannan data_store::insert()  INFO  (PID: 18470)>  Insert called :Insert into applier values (?,?,?,?,?,?,?,?,?,?) with applier_result
+2018-12-04 07:12:19,462  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18764)>  getting config for publishing
+2018-12-04 07:12:19,463  aggregator utility_producer::_get_config()  INFO  (PID: 18764)>  In _get_config retrieved publisher type is gen_cm
+2018-12-04 07:12:19,472  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18764)>  getting message to be publisehd
+2018-12-04 07:12:19,474  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18764)>  Emptying the table
+2018-12-04 07:12:19,475  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18764)>  Publishing the message
+2018-12-04 07:12:19,495  kannan gen_consumer::process()  INFO  (PID: 18470)>  strting datastore process for
+2018-12-04 07:12:19,498  kannan gen_consumer::process()  INFO  (PID: 18470)>  Message verification passed
+2018-12-04 07:12:19,500  kannan gen_consumer::process()  INFO  (PID: 18470)>  msg {'correlation_id': '111firms2', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 07:12:19,504  kannan data_store_driver::store()  INFO  (PID: 18470)>  Message verification succesfull
+2018-12-04 07:12:19,506  kannan data_store::inner()  INFO  (PID: 18470)>  Connecting to db
+2018-12-04 07:12:19,510  kannan data_store_driver::store()  ERROR  (PID: 18470)>  Message already exist in the table
+2018-12-04 07:12:19,511  kannan gen_consumer::process()  ERROR  (PID: 18470)>  {'correlation_id': '111firms2', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'}
+Traceback (most recent call last):
+  File "gen_consumer.py", line 99, in process
+    raise MsgDataStoreFailed(self.new_msg['header'])
+MsgDataStoreFailed: {'correlation_id': '111firms2', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'}
+2018-12-04 07:12:54,483  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18837)>  getting config for publishing
+2018-12-04 07:12:54,484  aggregator utility_producer::_get_config()  INFO  (PID: 18837)>  In _get_config retrieved publisher type is gen_cm
+2018-12-04 07:12:54,495  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18837)>  getting message to be publisehd
+2018-12-04 07:12:54,496  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18837)>  Emptying the table
+2018-12-04 07:12:54,496  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18837)>  Publishing the message
+2018-12-04 07:12:54,517  kannan gen_consumer::process()  INFO  (PID: 18470)>  strting datastore process for
+2018-12-04 07:12:54,519  kannan gen_consumer::process()  INFO  (PID: 18470)>  Message verification passed
+2018-12-04 07:12:54,520  kannan gen_consumer::process()  INFO  (PID: 18470)>  msg {'correlation_id': '22firms2', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 07:12:54,522  kannan data_store_driver::store()  INFO  (PID: 18470)>  Message verification succesfull
+2018-12-04 07:12:54,526  kannan data_store::inner()  INFO  (PID: 18470)>  Connecting to db
+2018-12-04 07:12:54,531  kannan data_store::select_data()  ERROR  (PID: 18470)>  Select failed :select * from applier where correlation_id=:1 and type=:2-('22firms2', 'applier_result') due to ('select * from applier where correlation_id=:1 and type=:2', ('22firms2', 'applier_result'), [])
+Traceback (most recent call last):
+  File "/home/navi/changemanager/changemanager/utils/data_store.py", line 98, in select_data
+    if not data:
+utils.data_store.NoDataAvailableException: ('select * from applier where correlation_id=:1 and type=:2', ('22firms2', 'applier_result'), [])
+2018-12-04 07:12:54,540  kannan data_store_driver::store()  INFO  (PID: 18470)>  received msg is not already there in validator ,proceding to insert
+2018-12-04 07:12:54,548  kannan data_store::inner()  INFO  (PID: 18470)>  Connecting to db
+2018-12-04 07:12:54,550  kannan data_store::insert()  INFO  (PID: 18470)>  Insert called :Insert into applier values (?,?,?,?,?,?,?,?,?,?) with applier_result
+2018-12-04 07:13:57,904  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18940)>  getting config for publishing
+2018-12-04 07:13:57,905  aggregator utility_producer::_get_config()  INFO  (PID: 18940)>  In _get_config retrieved publisher type is gen_cm
+2018-12-04 07:13:57,916  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18940)>  getting message to be publisehd
+2018-12-04 07:13:57,918  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18940)>  Emptying the table
+2018-12-04 07:13:57,919  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 18940)>  Publishing the message
+2018-12-04 07:13:57,940  kannan gen_consumer::process()  INFO  (PID: 18470)>  strting datastore process for
+2018-12-04 07:13:57,942  kannan gen_consumer::process()  INFO  (PID: 18470)>  Message verification passed
+2018-12-04 07:13:57,944  kannan gen_consumer::process()  INFO  (PID: 18470)>  msg {'correlation_id': 'abcfirms2', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 07:13:57,950  kannan data_store_driver::store()  INFO  (PID: 18470)>  Message verification succesfull
+2018-12-04 07:13:57,958  kannan data_store::inner()  INFO  (PID: 18470)>  Connecting to db
+2018-12-04 07:13:57,960  kannan data_store::select_data()  ERROR  (PID: 18470)>  Select failed :select * from applier where correlation_id=:1 and type=:2-('abcfirms2', 'applier_result') due to ('select * from applier where correlation_id=:1 and type=:2', ('abcfirms2', 'applier_result'), [])
+Traceback (most recent call last):
+  File "/home/navi/changemanager/changemanager/utils/data_store.py", line 98, in select_data
+    #logger.info ("following items retrieved {}".format (data))
+utils.data_store.NoDataAvailableException: ('select * from applier where correlation_id=:1 and type=:2', ('abcfirms2', 'applier_result'), [])
+2018-12-04 07:13:57,963  kannan data_store_driver::store()  INFO  (PID: 18470)>  received msg is not already there in validator ,proceding to insert
+2018-12-04 07:13:57,969  kannan data_store::inner()  INFO  (PID: 18470)>  Connecting to db
+2018-12-04 07:13:57,974  kannan data_store::insert()  INFO  (PID: 18470)>  Insert called :Insert into applier values (?,?,?,?,?,?,?,?,?,?) with applier_result
+2018-12-04 07:14:12,380  kannan gen_consumer::<module>()  ERROR  (PID: 18470)>  KeyboardInterrupt
+Traceback (most recent call last):
+  File "gen_consumer.py", line 151, in <module>
+    conn.consume(callback)
+  File "/home/navi/changemanager/changemanager/lib/consumer.py", line 37, in consume
+    self.channel.start_consuming ()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 1822, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 749, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 458, in _flush_output
+    self._impl.ioloop.poll()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 495, in poll
+    self._poller.poll()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 1102, in poll
+    events = self._poll.poll(self._get_max_wait())
+KeyboardInterrupt
+2018-12-04 07:15:20,222  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19076)>  getting config for publishing
+2018-12-04 07:15:20,223  aggregator utility_producer::_get_config()  INFO  (PID: 19076)>  In _get_config retrieved publisher type is gen_cm
+2018-12-04 07:15:20,233  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19076)>  getting message to be publisehd
+2018-12-04 07:15:20,234  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19076)>  Emptying the table
+2018-12-04 07:15:20,235  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19076)>  Publishing the message
+2018-12-04 07:15:23,731  kannan gen_consumer::<module>()  INFO  (PID: 19082)>  Validator started to Execute at 1543887923.7313154
+2018-12-04 07:15:23,732  kannan gen_consumer::<module>()  INFO  (PID: 19082)>  reading configs required for validator consumer from file consumer_config.yml in utils dir
+2018-12-04 07:15:23,739  kannan gen_consumer::<module>()  INFO  (PID: 19082)>  Starting to consume
+2018-12-04 07:15:23,759  kannan gen_consumer::process()  INFO  (PID: 19082)>  strting datastore process for
+2018-12-04 07:15:23,760  kannan gen_consumer::process()  INFO  (PID: 19082)>  Message verification passed
+2018-12-04 07:15:23,761  kannan gen_consumer::process()  INFO  (PID: 19082)>  msg {'correlation_id': 'sdsdabcfirms2', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 07:15:23,762  kannan data_store_driver::store()  INFO  (PID: 19082)>  Message verification succesfull
+2018-12-04 07:15:23,763  kannan data_store::inner()  INFO  (PID: 19082)>  Connecting to db
+2018-12-04 07:15:23,764  kannan data_store::select_data()  ERROR  (PID: 19082)>  Select failed :select * from applier where correlation_id=:1 and type=:2-('sdsdabcfirms2', 'applier_result') due to ('select * from applier where correlation_id=:1 and type=:2', ('sdsdabcfirms2', 'applier_result'), [])
+Traceback (most recent call last):
+  File "/home/navi/changemanager/changemanager/utils/data_store.py", line 101, in select_data
+    raise NoDataAvailableException (query, bind, data)
+utils.data_store.NoDataAvailableException: ('select * from applier where correlation_id=:1 and type=:2', ('sdsdabcfirms2', 'applier_result'), [])
+2018-12-04 07:15:23,766  kannan data_store_driver::store()  INFO  (PID: 19082)>  received msg is not already there in validator ,proceding to insert
+2018-12-04 07:15:23,767  kannan data_store::inner()  INFO  (PID: 19082)>  Connecting to db
+2018-12-04 07:15:23,769  kannan data_store::insert()  INFO  (PID: 19082)>  Insert called :Insert into applier values (?,?,?,?,?,?,?,?,?,?) with applier_result
+2018-12-04 07:15:35,388  kannan data_store::insert()  INFO  (PID: 19082)>  Insertion is succesfull
+2018-12-04 07:16:49,830  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19139)>  getting config for publishing
+2018-12-04 07:16:49,831  aggregator utility_producer::_get_config()  INFO  (PID: 19139)>  In _get_config retrieved publisher type is gen_cm
+2018-12-04 07:16:49,840  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19139)>  getting message to be publisehd
+2018-12-04 07:16:49,841  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19139)>  Emptying the table
+2018-12-04 07:16:49,841  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19139)>  Publishing the message
+2018-12-04 07:16:54,174  kannan gen_consumer::<module>()  INFO  (PID: 19145)>  Validator started to Execute at 1543888014.174765
+2018-12-04 07:16:54,175  kannan gen_consumer::<module>()  INFO  (PID: 19145)>  reading configs required for validator consumer from file consumer_config.yml in utils dir
+2018-12-04 07:16:54,182  kannan gen_consumer::<module>()  INFO  (PID: 19145)>  Starting to consume
+2018-12-04 07:16:58,213  kannan gen_consumer::<module>()  ERROR  (PID: 19145)>  KeyboardInterrupt
+Traceback (most recent call last):
+  File "gen_consumer.py", line 151, in <module>
+    conn.consume(callback)
+  File "/home/navi/changemanager/changemanager/lib/consumer.py", line 37, in consume
+    self.channel.start_consuming ()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 1822, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 749, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 458, in _flush_output
+    self._impl.ioloop.poll()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 495, in poll
+    self._poller.poll()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 1102, in poll
+    events = self._poll.poll(self._get_max_wait())
+KeyboardInterrupt
+2018-12-04 07:17:26,022  kannan gen_consumer::<module>()  INFO  (PID: 19199)>  Validator started to Execute at 1543888046.022479
+2018-12-04 07:17:26,023  kannan gen_consumer::<module>()  INFO  (PID: 19199)>  reading configs required for validator consumer from file consumer_config.yml in utils dir
+2018-12-04 07:17:26,030  kannan gen_consumer::<module>()  INFO  (PID: 19199)>  Starting to consume
+2018-12-04 07:17:26,049  kannan gen_consumer::process()  INFO  (PID: 19199)>  strting datastore process for
+2018-12-04 07:17:26,050  kannan gen_consumer::process()  INFO  (PID: 19199)>  Message verification passed
+2018-12-04 07:17:26,051  kannan gen_consumer::process()  INFO  (PID: 19199)>  msg {'correlation_id': 'sdsdabcd332', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 07:17:26,053  kannan data_store_driver::store()  INFO  (PID: 19199)>  Message verification succesfull
+2018-12-04 07:17:26,054  kannan data_store::inner()  INFO  (PID: 19199)>  Connecting to db
+2018-12-04 07:17:26,055  kannan data_store::select_data()  ERROR  (PID: 19199)>  Select failed :select * from applier where correlation_id=:1 and type=:2-('sdsdabcd332', 'applier_result') due to ('select * from applier where correlation_id=:1 and type=:2', ('sdsdabcd332', 'applier_result'), [])
+Traceback (most recent call last):
+  File "/home/navi/changemanager/changemanager/utils/data_store.py", line 101, in select_data
+    raise NoDataAvailableException (query, bind, data)
+utils.data_store.NoDataAvailableException: ('select * from applier where correlation_id=:1 and type=:2', ('sdsdabcd332', 'applier_result'), [])
+2018-12-04 07:17:26,058  kannan data_store_driver::store()  INFO  (PID: 19199)>  received msg is not already there in validator ,proceding to insert
+2018-12-04 07:17:26,060  kannan data_store::inner()  INFO  (PID: 19199)>  Connecting to db
+2018-12-04 07:17:26,061  kannan data_store::insert()  INFO  (PID: 19199)>  Insert called :Insert into applier values (?,?,?,?,?,?,?,?,?,?) with applier_result
+2018-12-04 07:17:33,581  kannan data_store::insert()  INFO  (PID: 19199)>  Insertion is succesfull
+2018-12-04 07:18:44,410  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19307)>  getting config for publishing
+2018-12-04 07:18:44,411  aggregator utility_producer::_get_config()  INFO  (PID: 19307)>  In _get_config retrieved publisher type is gen_cm
+2018-12-04 07:18:44,420  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19307)>  getting message to be publisehd
+2018-12-04 07:18:44,421  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19307)>  Emptying the table
+2018-12-04 07:18:44,421  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19307)>  Publishing the message
+2018-12-04 07:18:46,621  kannan gen_consumer::<module>()  INFO  (PID: 19311)>  Validator started to Execute at 1543888126.621707
+2018-12-04 07:18:46,622  kannan gen_consumer::<module>()  INFO  (PID: 19311)>  reading configs required for validator consumer from file consumer_config.yml in utils dir
+2018-12-04 07:18:46,629  kannan gen_consumer::<module>()  INFO  (PID: 19311)>  Starting to consume
+2018-12-04 07:18:46,647  kannan gen_consumer::process()  INFO  (PID: 19311)>  strting datastore process for
+2018-12-04 07:18:46,648  kannan gen_consumer::process()  INFO  (PID: 19311)>  Message verification passed
+2018-12-04 07:18:46,648  kannan gen_consumer::process()  INFO  (PID: 19311)>  msg {'correlation_id': 'sdsdabcd332', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 07:18:46,649  kannan data_store_driver::store()  INFO  (PID: 19311)>  Message verification succesfull
+2018-12-04 07:18:46,650  kannan data_store::inner()  INFO  (PID: 19311)>  Connecting to db
+2018-12-04 07:18:46,651  kannan data_store_driver::store()  ERROR  (PID: 19311)>  Message already exist in the table
+2018-12-04 07:18:46,652  kannan gen_consumer::process()  ERROR  (PID: 19311)>  {'correlation_id': 'sdsdabcd332', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'}
+Traceback (most recent call last):
+  File "gen_consumer.py", line 99, in process
+    raise MsgDataStoreFailed(self.new_msg['header'])
+MsgDataStoreFailed: {'correlation_id': 'sdsdabcd332', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'}
+2018-12-04 07:18:46,656  kannan gen_consumer::process()  INFO  (PID: 19311)>  strting datastore process for
+2018-12-04 07:18:46,659  kannan gen_consumer::process()  INFO  (PID: 19311)>  Message verification passed
+2018-12-04 07:18:46,660  kannan gen_consumer::process()  INFO  (PID: 19311)>  msg {'correlation_id': 'sdsdabcd332', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 07:18:46,662  kannan data_store_driver::store()  INFO  (PID: 19311)>  Message verification succesfull
+2018-12-04 07:18:46,663  kannan data_store::inner()  INFO  (PID: 19311)>  Connecting to db
+2018-12-04 07:18:46,665  kannan data_store_driver::store()  ERROR  (PID: 19311)>  Message already exist in the table
+2018-12-04 07:18:46,666  kannan gen_consumer::process()  ERROR  (PID: 19311)>  {'correlation_id': 'sdsdabcd332', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'}
+Traceback (most recent call last):
+  File "gen_consumer.py", line 99, in process
+    raise MsgDataStoreFailed(self.new_msg['header'])
+MsgDataStoreFailed: {'correlation_id': 'sdsdabcd332', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'}
+2018-12-04 07:19:03,426  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19319)>  getting config for publishing
+2018-12-04 07:19:03,427  aggregator utility_producer::_get_config()  INFO  (PID: 19319)>  In _get_config retrieved publisher type is gen_cm
+2018-12-04 07:19:03,438  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19319)>  getting message to be publisehd
+2018-12-04 07:19:03,439  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19319)>  Emptying the table
+2018-12-04 07:19:03,440  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19319)>  Publishing the message
+2018-12-04 07:19:03,469  kannan gen_consumer::process()  INFO  (PID: 19311)>  strting datastore process for
+2018-12-04 07:19:03,470  kannan gen_consumer::process()  INFO  (PID: 19311)>  Message verification passed
+2018-12-04 07:19:03,471  kannan gen_consumer::process()  INFO  (PID: 19311)>  msg {'correlation_id': 'sdsdabcd332', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 07:19:03,472  kannan data_store_driver::store()  INFO  (PID: 19311)>  Message verification succesfull
+2018-12-04 07:19:03,478  kannan data_store::inner()  INFO  (PID: 19311)>  Connecting to db
+2018-12-04 07:19:03,485  kannan data_store_driver::store()  ERROR  (PID: 19311)>  Message already exist in the table
+2018-12-04 07:19:03,490  kannan gen_consumer::process()  ERROR  (PID: 19311)>  {'correlation_id': 'sdsdabcd332', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'}
+Traceback (most recent call last):
+  File "gen_consumer.py", line 99, in process
+    raise MsgDataStoreFailed(self.new_msg['header'])
+MsgDataStoreFailed: {'correlation_id': 'sdsdabcd332', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'}
+2018-12-04 07:19:17,960  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19326)>  getting config for publishing
+2018-12-04 07:19:17,961  aggregator utility_producer::_get_config()  INFO  (PID: 19326)>  In _get_config retrieved publisher type is gen_cm
+2018-12-04 07:19:17,970  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19326)>  getting message to be publisehd
+2018-12-04 07:19:17,971  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19326)>  Emptying the table
+2018-12-04 07:19:17,971  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19326)>  Publishing the message
+2018-12-04 07:19:17,988  kannan gen_consumer::process()  INFO  (PID: 19311)>  strting datastore process for
+2018-12-04 07:19:17,989  kannan gen_consumer::process()  INFO  (PID: 19311)>  Message verification passed
+2018-12-04 07:19:17,990  kannan gen_consumer::process()  INFO  (PID: 19311)>  msg {'correlation_id': '0002', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 07:19:17,990  kannan data_store_driver::store()  INFO  (PID: 19311)>  Message verification succesfull
+2018-12-04 07:19:17,991  kannan data_store::inner()  INFO  (PID: 19311)>  Connecting to db
+2018-12-04 07:19:17,993  kannan data_store::select_data()  ERROR  (PID: 19311)>  Select failed :select * from applier where correlation_id=:1 and type=:2-('0002', 'applier_result') due to ('select * from applier where correlation_id=:1 and type=:2', ('0002', 'applier_result'), [])
+Traceback (most recent call last):
+  File "/home/navi/changemanager/changemanager/utils/data_store.py", line 101, in select_data
+    raise NoDataAvailableException (query, bind, data)
+utils.data_store.NoDataAvailableException: ('select * from applier where correlation_id=:1 and type=:2', ('0002', 'applier_result'), [])
+2018-12-04 07:19:17,999  kannan data_store_driver::store()  INFO  (PID: 19311)>  received msg is not already there in validator ,proceding to insert
+2018-12-04 07:19:18,002  kannan data_store::inner()  INFO  (PID: 19311)>  Connecting to db
+2018-12-04 07:19:18,006  kannan data_store::insert()  INFO  (PID: 19311)>  Insert called :Insert into applier values (?,?,?,?,?,?,?,?,?,?) with applier_result
+2018-12-04 07:19:18,024  kannan data_store::insert()  INFO  (PID: 19311)>  Insertion is succesfull
+2018-12-04 07:20:26,184  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19495)>  getting config for publishing
+2018-12-04 07:20:26,184  aggregator utility_producer::_get_config()  INFO  (PID: 19495)>  In _get_config retrieved publisher type is gen_cm
+2018-12-04 07:20:26,193  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19495)>  getting message to be publisehd
+2018-12-04 07:20:26,194  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19495)>  Emptying the table
+2018-12-04 07:20:26,195  aggregator utility_producer::publish_consume_store_verify_process()  INFO  (PID: 19495)>  Publishing the message
+2018-12-04 07:20:26,215  kannan gen_consumer::process()  INFO  (PID: 19311)>  strting datastore process for
+2018-12-04 07:20:26,217  kannan gen_consumer::process()  INFO  (PID: 19311)>  Message verification passed
+2018-12-04 07:20:26,220  kannan gen_consumer::process()  INFO  (PID: 19311)>  msg {'correlation_id': 'lzx', 'username': 'kannan', 'type': 'applier_result', 'ticket_num': 'srno123'} of  type applier_result is being processed to store in applier
+2018-12-04 07:20:26,222  kannan data_store_driver::store()  INFO  (PID: 19311)>  Message verification succesfull
+2018-12-04 07:20:26,225  kannan data_store::inner()  INFO  (PID: 19311)>  Connecting to db
+2018-12-04 07:20:26,228  kannan data_store::select_data()  ERROR  (PID: 19311)>  Select failed :select * from applier where correlation_id=:1 and type=:2-('lzx', 'applier_result') due to ('select * from applier where correlation_id=:1 and type=:2', ('lzx', 'applier_result'), [])
+Traceback (most recent call last):
+  File "/home/navi/changemanager/changemanager/utils/data_store.py", line 101, in select_data
+    raise NoDataAvailableException (query, bind, data)
+utils.data_store.NoDataAvailableException: ('select * from applier where correlation_id=:1 and type=:2', ('lzx', 'applier_result'), [])
+2018-12-04 07:20:26,236  kannan data_store_driver::store()  INFO  (PID: 19311)>  received msg is not already there in validator ,proceding to insert
+2018-12-04 07:20:26,238  kannan data_store::inner()  INFO  (PID: 19311)>  Connecting to db
+2018-12-04 07:20:26,239  kannan data_store::insert()  INFO  (PID: 19311)>  Insert called :Insert into applier values (?,?,?,?,?,?,?,?,?,?) with applier_result
+2018-12-04 07:20:26,264  kannan data_store::insert()  INFO  (PID: 19311)>  Insertion is succesfull
+2018-12-04 07:20:32,711  kannan gen_consumer::<module>()  ERROR  (PID: 19311)>  KeyboardInterrupt
+Traceback (most recent call last):
+  File "gen_consumer.py", line 151, in <module>
+    conn.consume(callback)
+  File "/home/navi/changemanager/changemanager/lib/consumer.py", line 37, in consume
+    self.channel.start_consuming ()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 1822, in start_consuming
+    self.connection.process_data_events(time_limit=None)
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 749, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/blocking_connection.py", line 458, in _flush_output
+    self._impl.ioloop.poll()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 495, in poll
+    self._poller.poll()
+  File "/home/navi/changemanager/Firms2_venv/lib/python3.6/site-packages/pika/adapters/select_connection.py", line 1102, in poll
+    events = self._poll.poll(self._get_max_wait())
+KeyboardInterrupt
