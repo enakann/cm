@@ -89,7 +89,7 @@ class GenMessages (object):
 class ApproverMsg (GenMessages):
     def __init__(self, msg):
         super ().__init__ (msg)
-        self.count = self.msg[6]
+        self.count = self.msg[6] if self.msg[6] else 0
         self.payload = self.msg[7]
         self.status = self.msg[8]
         self.table='approver'

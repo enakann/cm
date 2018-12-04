@@ -186,6 +186,7 @@ class Poller:
         except Exception as e:
             logger.error("Exception {} occured while creating header and summary for {}".format(e,item))
             return False
+        import pdb;pdb.set_trace()
         try:
             for srvs_type,gen_msg in _rcp_result_verified.items():
                 if srvs_type == 'approver_applier':
@@ -194,6 +195,10 @@ class Poller:
                             _final_msg["payload"]["summary"]["pre_approved_matched_count"]=_msg.count
                         elif _msg.type == 'pre_approved_not_matched':
                             _final_msg["payload"]["summary"]["pre_approved_not_matched_count"] = _msg.count
+
+                        elif _msg.type == 'applier_result':
+                            _final_msg["payload"]["summary"]['applier_success_count'] = _msg.total_success
+                            _final_msg["payload"]["summary"]['applier_failed_count'] = _msg.total_failed
                         _final_msg["payload"][_msg.type]=_msg.get_payload()
                 elif srvs_type == 'generator':
                     for _msg in gen_msg:
@@ -201,8 +206,7 @@ class Poller:
         except Exception as e:
             logging.error("Exception {} occured while creating summary and payload for {}".format(e,item))
             return False
-
-        try:
+        """try:
             #import pdb;pdb.set_trace()
 
             _final_msg["payload"]["summary"]["pre_approved_not_matched_count"]=_final_msg["payload"]["summary"].get("pre_approved_not_matched_count",0)
@@ -214,7 +218,7 @@ class Poller:
             _final_msg["payload"]["summary"]["approved_matched_count"] = _final_msg["payload"]["summary"].get("pre_approved_matched_count",0)
         except KeyError:
             logger.debug ("setting pre_approved_matched as 0 as its not available")
-            _final_msg["payload"]["summary"]["approved_matched_count"] = 0
+            _final_msg["payload"]["summary"]["approved_matched_count"] = 0 """
 
 
 
