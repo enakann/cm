@@ -11,6 +11,8 @@ from approver_applier import RecommendPolicyPresent
 from utils.containers import MessageInfos, GenMessageInfos
 from etc import PROJECT_ROOT,TABLE_DATA_STORE_DRIVER_CLASS,MSG_TYPE_TABLE_MAPPING
 
+from gen_consumer import ServiceConsumerCallback
+
 import copy
 import traceback
 import time
@@ -166,10 +168,21 @@ class Poller:
 
 
     def publish_to_change_record_creator(self,msg):
+        import pdb;pdb.set_trace ()
+    
+        def callback(prop, msg):
+            return ServiceConsumerCallback (prop, msg).process ()
+
+        if sys.platform == 'win32':
+            _msg={}
+            _prop=msg['headers']
+            _msg['payload']=msg['payload']
+            callback(_prop,_msg)
+        else:
         #import pdb;pdb.set_trace()
-        yml = YAML ("publisher_config.yml", "change_record_creator")
-        config = yml.get_config ()
-        with FirmsPublisher (config) as  generateInstance:
+            yml = YAML ("publisher_config.yml", "change_record_creator")
+            config = yml.get_config ()
+            with FirmsPublisher (config) as  generateInstance:
                 return generateInstance.publish(msg)
 
     def transform_container_to_json(self,item,_rcp_result_verified):
@@ -188,12 +201,16 @@ class Poller:
             return False
         try:
             for srvs_type,gen_msg in _rcp_result_verified.items():
+                import pdb;pdb.set_trace()
                 if srvs_type == 'approver_applier':
                     for _msg in gen_msg:
                         if _msg.type == 'pre_approved_matched':
                             _final_msg["payload"]["summary"]["pre_approved_matched_count"]=_msg.count
                         elif _msg.type == 'pre_approved_not_matched':
                             _final_msg["payload"]["summary"]["pre_approved_not_matched_count"] = _msg.count
+                        elif _msg.type == 'applier':
+                            _final_msg["payload"]["summary"]['applier_success_count'] = _msg.total_success
+                            _final_msg["payload"]["summary"]['applier_failed_count'] = _msg.total_failed
                         _final_msg["payload"][_msg.type]=_msg.get_payload()
                 elif srvs_type == 'generator':
                     for _msg in gen_msg:

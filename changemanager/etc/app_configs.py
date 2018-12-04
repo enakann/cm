@@ -2,7 +2,7 @@ import sys
 
 PROJECT_ROOT = "/home/navi/changemanager/changemanager"
 if sys.platform == 'win32':
-    PROJECT_ROOT = r"C:\Users\navkanna\PycharmProjects\cm\changemanager"
+    PROJECT_ROOT = r"D:\FiRMS2\changemanager\changemanager"
 
 MSG_TYPE_TABLE_MAPPING = {
     'gen_summary': 'gen_summary',
@@ -12,7 +12,7 @@ MSG_TYPE_TABLE_MAPPING = {
     'pre_approved_matched': 'approver',
     'pre_approved_not_matched': 'approver',
     'applier_result': 'applier',
-     'change_record':'change_record'}
+     'change_record':'change_details'}
 
 #from utils.data_store_driver import ConsumerDataStoreDriver,ConsumerDataStoreDriverForGenSummary,ConsumerDataStoreDriverForApprover,ConsumerDataStoreDriverForApplier,ConsDataStoreDrvrForChangeRecordCreator
 
