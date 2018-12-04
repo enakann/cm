@@ -37,7 +37,7 @@ class ConsumerDataStoreDriver(object):
                 raise InvalidHeader("either message header is empty or invalid")
             if not ("payload" in self.msg and len (self.msg["payload"]) > 0):
                 raise InvalidPayload("either payload is empty or invalid")
-            if not self.msg["header"]["type"] in ['gen_summary', 'new_policy', 'red_flags', 'existing_policies',
+            if not self.msg["header"]["type"] in ['change_record','gen_summary', 'new_policy', 'red_flags', 'existing_policies',
                                           'pre_approved_matched', 'pre_approved_not_matched', 'applier_result']:
                 raise UnknownMsgType("message type is unkown")
 
@@ -213,15 +213,20 @@ class ConsDataStoreDrvrForChangeRecordCreator(ConsumerDataStoreDriver):
             _insert_values = [None, datetime.datetime.now (), header["correlation_id"], header["username"],
                               header["ticket_num"], header["type"]]
             _summary = payload['summary']
-            total_failed = _summary['total_failed']
-            total_success = _summary['total_success']
+            total_recs=_summary['total_recs']
+            recomm_for=_summary['recomm_for']
+            existing=_summary['existing']
+            red_flags=_summary['red_flags']
+            pre_approved_matched_count=_summary['pre_approved_matched_count']
+            pre_approved_not_matched_count=_summary['pre_approved_not_matched_count']
+            applier_success_count = _summary['applier_success_count']
+            applier_failed_count = _summary['applier_failed_count']
             _payload = json.dumps (payload)
         except KeyError as e:
             logger.error (e, exc_info=True)
             raise e
-        
-        _insert_values.append (total_failed)
-        _insert_values.append (total_success)
+        _ls=[total_recs,recomm_for,existing, red_flags,pre_approved_matched_count,pre_approved_not_matched_count,applier_success_count,applier_failed_count]
+        _insert_values=_insert_values+_ls
         _insert_values.append (_payload)
         _insert_values.append ('pending')
         

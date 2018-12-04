@@ -101,14 +101,6 @@ class ServiceConsumerCallback:
         return False
  
     def _get_msg_type_and_table(self):
-        _type_table_mapping={
-            'gen_summary':'gen_summary',
-            'new_policy':'generate',
-            'red_flags':'generate',
-            'existing_policies':'generate',
-            'pre_approved_matched':'approver',
-            'pre_approved_not_matched':'approver',
-            'applier_result':'applier'}
         try:
            table=MSG_TYPE_TABLE_MAPPING.get(self.prop['type'],None)
            if not table:

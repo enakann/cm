@@ -97,8 +97,8 @@ class ApproverMsg (GenMessages):
 class ApplierMsg (GenMessages):
     def __init__(self, msg):
         super ().__init__ (msg)
-        self.total_failed=self.msg[6]
-        self.total_success=self.msg[7]
+        self.total_failed=self.msg[6] if self.msg[6] else 0
+        self.total_success=self.msg[7] if self.msg[7] else 0
         self.payload = self.msg[8]
         self.status = self.msg[9]
         self.table='applier'
